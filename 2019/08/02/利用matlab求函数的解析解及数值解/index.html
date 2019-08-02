@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>第一篇 | 何妨吟啸且徐行</title>
+    <title>利用matlab求函数的解析解及数值解 | 何妨吟啸且徐行</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="旭东">
     
 
     
-    <meta name="description" content="再来一个hello world 测试一下">
+    <meta name="description" content="前两天看师弟在求一个线性方程组的解，只不过这个方程组的系数是待定的，因此可以算做是利用matlab求函数的解析解。利用同样的方法也可以求数值解。
+ 1.求线性方程组的解析解
+ syms W1 W2 g1 g2 q1 q2 P0;syms a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3;[WH1, WH2, gH1, gH2, qH1, qH2,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇">
-<meta property="og:url" content="http://yoursite.com/2016/09/06/就试试第一篇/index.html">
+<meta property="og:title" content="利用matlab求函数的解析解及数值解">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/利用matlab求函数的解析解及数值解/index.html">
 <meta property="og:site_name" content="何妨吟啸且徐行">
-<meta property="og:description" content="再来一个hello world 测试一下">
-<meta property="og:updated_time" content="2016-09-07T13:41:50.929Z">
+<meta property="og:description" content="前两天看师弟在求一个线性方程组的解，只不过这个方程组的系数是待定的，因此可以算做是利用matlab求函数的解析解。利用同样的方法也可以求数值解。
+ 1.求线性方程组的解析解
+ syms W1 W2 g1 g2 q1 q2 P0;syms a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3;[WH1, WH2, gH1, gH2, qH1, qH2,">
+<meta property="og:updated_time" content="2019-08-02T14:51:11.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇">
-<meta name="twitter:description" content="再来一个hello world 测试一下">
+<meta name="twitter:title" content="利用matlab求函数的解析解及数值解">
+<meta name="twitter:description" content="前两天看师弟在求一个线性方程组的解，只不过这个方程组的系数是待定的，因此可以算做是利用matlab求函数的解析解。利用同样的方法也可以求数值解。
+ 1.求线性方程组的解析解
+ syms W1 W2 g1 g2 q1 q2 P0;syms a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3;[WH1, WH2, gH1, gH2, qH1, qH2,">
 
     
     <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
@@ -80,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/06/就试试第一篇/" title="第一篇" itemprop="url">第一篇</a>
+      <a href="/2019/08/02/利用matlab求函数的解析解及数值解/" title="利用matlab求函数的解析解及数值解" itemprop="url">利用matlab求函数的解析解及数值解</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-06T04:11:42.000Z" itemprop="datePublished"> 发表于 2016-09-06</time>
+    <time datetime="2019-08-02T14:26:51.000Z" itemprop="datePublished"> 发表于 2019-08-02</time>
     
   </p>
 </header>
@@ -100,7 +106,16 @@
 		
 		</div>
 		
-		<p>再来一个hello world 测试一下</p>
+		<p> 前两天看师弟在求一个线性方程组的解，只不过这个方程组的系数是待定的，因此可以算做是利用matlab求函数的解析解。利用同样的方法也可以求数值解。</p>
+<p> 1.求线性方程组的解析解</p>
+<p> syms W1 W2 g1 g2 q1 q2 P0;<br>syms a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3;<br>[WH1, WH2, gH1, gH2, qH1, qH2, PH0]= solve((2-2<em>P1</em>b1/A1)<em>W1==P1</em>e1+2<em>X1-2</em>G+2<em>g1-a+q2-P3,(2-2</em>P2<em>b2/A2)</em>W2==P2<em>e2+2</em>X2-2<em>G+2</em>g2-a+q1-P3, 2<em>c1</em>g1==2<em>P1</em>b1<em>W1/A1+P1</em>e1-P3,2<em>c2</em>g2==2<em>P2</em>b2<em>W2/A2+P2</em>e2-P3,q1==X1-W1-G+g1,q2==X2-W2-G+g2,P0==a-q1-q2,[W1, W2, g1, g2, q1, q2, P0])</p>
+<p> 已知，a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3; 并且知道W1 W2 g1 g2 q1 q2 P0和已知量的关系，求解W1 W2 g1 g2 q1 q2 P0;</p>
+<p> 代码：<br>syms W1 W2 g1 g2 q1 q2 P0;<br>syms a A1 A2 b1 b2 c1 c2 d1 d2 e1 e2 G X1 X2 P1 P2 P3;<br>[WH1, WH2, gH1, gH2, qH1, qH2, PH0]= solve((2-2<em>P1</em>b1/A1)<em>W1==P1</em>e1+2<em>X1-2</em>G+2<em>g1-a+q2-P3,(2-2</em>P2<em>b2/A2)</em>W2==P2<em>e2+2</em>X2-2<em>G+2</em>g2-a+q1-P3, 2<em>c1</em>g1==2<em>P1</em>b1<em>W1/A1+P1</em>e1-P3,2<em>c2</em>g2==2<em>P2</em>b2<em>W2/A2+P2</em>e2-P3,q1==X1-W1-G+g1,q2==X2-W2-G+g2,P0==a-q1-q2,[W1, W2, g1, g2, q1, q2, P0])</p>
+<p>主要是利用matlab中的函数slove;</p>
+<p>[aa,bb]=slove(关系式子1，关系式子2，[要求的量1，要求的量2])<br>aa和bb是要求的量1和2的结果</p>
+<p>2.利用1中的结果，给出的是方程组，那么[aa,bb]就是方程组的解。具体点说，当方程组是两条线，那么前面给出的就是交点坐标<br>代码1：<br>syms x,y;<br>[aa,bb]=solve(x<em>x+y</em>y==4,x+y=5,[x,y])</p>
+<p>代码2：<br>syms x,y,c,d;<br>[aa,bb]=solve(x<em>x+y</em>y==c,x+y=d,[x,y])</p>
+<p>3类似的还有求微分方程（dslove),具体可以再百度，或者看matlab的帮助文档。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -108,13 +123,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/日志/">日志</a>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/日志/">日志</a>
+  <span></span> <a href="/tags/matlab/">matlab</a>
   </div>
 
 </div>
@@ -123,7 +138,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/09/06/就试试第一篇/" data-title="第一篇 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/08/02/利用matlab求函数的解析解及数值解/" data-title="利用matlab求函数的解析解及数值解 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,19 +151,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/09/06/安装历程/" title="致谢">
-  <strong>上一篇：</strong><br/>
-  <span>
-  致谢</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/08/01/未完成的小说-北山的故事/"  title="未完成的小说-乔山的故事">
+<a href="/2019/07/23/病后杂记/"  title="病后杂记">
  <strong>下一篇：</strong><br/> 
- <span>未完成的小说-乔山的故事
+ <span>病后杂记
 </span>
 </a>
 </div>
