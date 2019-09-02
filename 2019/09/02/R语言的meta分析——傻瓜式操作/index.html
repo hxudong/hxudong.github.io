@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/09/02/R语言的meta分析——傻瓜式操作/index.html">
 <meta property="og:site_name" content="何妨吟啸且徐行">
 <meta property="og:description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
-<meta property="og:updated_time" content="2019-09-02T15:15:21.897Z">
+<meta property="og:updated_time" content="2019-09-02T15:21:32.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R语言的meta分析——傻瓜式操作">
 <meta name="twitter:description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
@@ -100,7 +100,7 @@
 		
 		</div>
 		
-		<p>R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。<br>其实本质上就是利用meta库，求解<br>（1）加载meta库，镜像源选择“中国上海”<br>（2）看一下成功了没<br>（3）数据加载到rate变量<br>（4）看一下rate成功没<br>（5）进行换<br>（6）写入几个变换到csv文件里<br>（7）进行测试<br>（8）利用metaprop函数进行求解得到meterate<br> (9)后处理得到森林图，“Egger’s”图，和Gallbraith图<br> 代码如下：<br>install.packages(“meta”)<br>library(meta)<br>rate&lt;-read.csv(‘rate.csv’,sep=’,’,header=TRUE)<br>rate<br>transform(rate,p=event/n,log=log(event/n),logit=log((event/n)/(1-event/n)),arcsin=asin(sqrt(event/(n+1))),darcsin=0.5*(asin(sqrt(event/(n+1)))+asin(sqrt((event+1)/(n+1)))))-&gt;rate<br>write.csv(rate,file=’rate.csv’)<br>rate<br>shapiro.test (rate$p)<br>metarate&lt;-metaprop(event,n,study,data=rate,sm=’PLOGIT’,incr=0.5,allincr=TRUE,addincr=FALSE,tile=”lanjie”)<br>funnel(metarate)<br>forest(metarate,digits=2)<br>metabias(metarate,method=”linreg”,plotit=TRUE,k.min=10)<br>metainf(metarate)</p>
+		<p>R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。<br>其实本质上就是利用meta库，求解<br>（1）加载meta库，镜像源选择“中国上海”<br>（2）看一下成功了没<br>（3）数据加载到rate变量<br>（4）看一下rate成功没<br>（5）进行换<br>（6）写入几个变换到csv文件里<br>（7）进行测试<br>（8）利用metaprop函数进行求解得到meterate<br> (9)后处理得到森林图，“Egger’s”图，和Gallbraith图<br> 代码如下：<br>install.packages(“meta”)<br>library(meta)<br>rate&lt;-read.csv(‘rate.csv’,sep=’,’,header=TRUE)<br>rate<br>transform(rate,p=event/n,log=log(event/n),logit=log((event/n)/(1-event/n)),arcsin=asin(sqrt(event/(n+1))),darcsin=0.5*(asin(sqrt(event/(n+1)))+asin(sqrt((event+1)/(n+1)))))-&gt;rate<br>write.csv(rate,file=’rate.csv’)<br>rate<br>shapiro.test (rate$p)<br>metarate&lt;-metaprop(event,n,study,data=rate,sm=’PLOGIT’,incr=0.5,allincr=TRUE,addincr=FALSE,tile=”lanjie”)<br>funnel(metarate)<br>forest(metarate,digits=2)<br>metabias(metarate,method=”linreg”,plotit=TRUE,k.min=10)<br>metainf(metarate)<br>表格的整理格式如下<br>M. Muzza et al 2014    11    30    0.366666667<br>F. Wang et al 2013    10    67    0.149253731<br>HyeYoung Jin et al 2014    20    43    0.465116279<br>F. Sun et al 2018    66    110    0.6<br>C. Fu et al 2015    13    45    0.288888889<br>Kyoung-Jin Park 2015    19    112    0.169642857<br>Chunyun Fu 2016    13    45    0.288888889<br>Matsuo et al 2016    11    48    0.229166667<br>H. Jiang et al 2016    10    12    0.833333333<br>M. Tan  et al 2016    60    96    0.625<br>Long et al 2018    49    106    0.462264151<br>X. Fan et al 2017    21    66    0.318181818</p>
   
 	</div>
 		<footer class="article-footer clearfix">
