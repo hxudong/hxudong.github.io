@@ -78,6 +78,66 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/09/02/R语言的meta分析——傻瓜式操作/" title="R语言的meta分析——傻瓜式操作" itemprop="url">R语言的meta分析——傻瓜式操作</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
+		
+  <p class="article-time">
+    <time datetime="2019-09-02T15:06:15.000Z" itemprop="datePublished"> 发表于 2019-09-02</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。<br>其实本质上就是利用meta库，求解<br>（1）加载meta库，镜像源选择“中国上海”<br>（2）看一下成功了没<br>（3）数据加载到rate变量<br>（4）看一下rate成功没<br>（5）进行换<br>（6）写入几个变换到csv文件里<br>（7）进行测试<br>（8）利用metaprop函数进行求解得到meterate<br> (9)后处理得到森林图，“Egger’s”图，和Gallbraith图<br> 代码如下：<br>install.packages(“meta”)<br>library(meta)<br>rate&lt;-read.csv(‘rate.csv’,sep=’,’,header=TRUE)<br>rate<br>transform(rate,p=event/n,log=log(event/n),logit=log((event/n)/(1-event/n)),arcsin=asin(sqrt(event/(n+1))),darcsin=0.5*(asin(sqrt(event/(n+1)))+asin(sqrt((event+1)/(n+1)))))-&gt;rate<br>write.csv(rate,file=’rate.csv’)<br>rate<br>shapiro.test (rate$p)<br>metarate&lt;-metaprop(event,n,study,data=rate,sm=’PLOGIT’,incr=0.5,allincr=TRUE,addincr=FALSE,tile=”lanjie”)<br>funnel(metarate)<br>forest(metarate,digits=2)<br>metabias(metarate,method=”linreg”,plotit=TRUE,k.min=10)<br>metainf(metarate)</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/R/">R</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/08/02/利用matlab求函数的解析解及数值解/" title="利用matlab求函数的解析解及数值解" itemprop="url">利用matlab求函数的解析解及数值解</a>
   </h1>
   <p class="article-author">By
@@ -631,68 +691,6 @@
 
 
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/07/02/送潘师姐钱师兄/" title="送潘师姐钱师兄" itemprop="url">送潘师姐钱师兄</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
-		
-  <p class="article-time">
-    <time datetime="2017-07-02T02:36:04.000Z" itemprop="datePublished"> 发表于 2017-07-02</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>今天大家在茶港食堂聚餐，送钱师兄和潘师姐，有好多事情，也有很多感谢。最后说出来，感觉也就是人生几何了？世上有好多好多的事情，每个人也都有自己的事情。这些事情，进行碰撞、融合以及排列组合以后，形成了每个人自己的人生，每个人像大海中的一个质点一样，影响着自己，也影响着别人的生活，被自己影响，也影响着别人。像一个互相影响的偏微分方程组。</p>
-<p>这个互相影响的方程组里，也有相近与互相联系的粒子群，便是我们这样一群人。</p>
-<p>好累，最近，忙这些事情。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/感想/">感想</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/记录/">记录</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -714,7 +712,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/代码/" title="代码">代码<sup>1</sup></a></li>
+			<li><a href="/categories/代码/" title="代码">代码<sup>2</sup></a></li>
 		  
 		
 		  
@@ -775,7 +773,7 @@
 			
 		
 			
-				<li><a href="/tags/高中/" title="高中">高中<sup>1</sup></a></li>
+				<li><a href="/tags/武大/" title="武大">武大<sup>1</sup></a></li>
 			
 		
 			
@@ -787,7 +785,15 @@
 			
 		
 			
+				<li><a href="/tags/R/" title="R">R<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/greta井雨/" title="greta井雨">greta井雨<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/高中/" title="高中">高中<sup>1</sup></a></li>
 			
 		
 			
@@ -804,10 +810,6 @@
 		
 			
 				<li><a href="/tags/扯淡/" title="扯淡">扯淡<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/武大/" title="武大">武大<sup>1</sup></a></li>
 			
 		
 		</ul>

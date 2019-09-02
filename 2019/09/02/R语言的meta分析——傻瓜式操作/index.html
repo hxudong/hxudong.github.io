@@ -4,29 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>忙得没有效率，很久也没有联系老同学 | 何妨吟啸且徐行</title>
+    <title>R语言的meta分析——傻瓜式操作 | 何妨吟啸且徐行</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="旭东">
     
 
     
-    <meta name="description" content="按道理来讲，现在的我应该做项目才对，因为手里头现在有很多事积压下来了，应该赶快弄完，再去做别的才是，但是今天或者是远一点的一段时期内，感觉自己做了很多杂事 ，所以做的事都是没有效率和意义的，因为自己一无所获，从中没有任何的学习。都是为了去完成而做的，感觉这些其实也都是可以避免的，但是却都是没有避免。
- 现在有一个想法就是不太爱热闹了，有点开始喜欢安静。可能是以前就喜欢安静，只是这么明确而清晰地感">
+    <meta name="description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
 <meta property="og:type" content="article">
-<meta property="og:title" content="忙得没有效率，很久也没有联系老同学">
-<meta property="og:url" content="http://yoursite.com/2016/11/05/20161105/index.html">
+<meta property="og:title" content="R语言的meta分析——傻瓜式操作">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/R语言的meta分析——傻瓜式操作/index.html">
 <meta property="og:site_name" content="何妨吟啸且徐行">
-<meta property="og:description" content="按道理来讲，现在的我应该做项目才对，因为手里头现在有很多事积压下来了，应该赶快弄完，再去做别的才是，但是今天或者是远一点的一段时期内，感觉自己做了很多杂事 ，所以做的事都是没有效率和意义的，因为自己一无所获，从中没有任何的学习。都是为了去完成而做的，感觉这些其实也都是可以避免的，但是却都是没有避免。
- 现在有一个想法就是不太爱热闹了，有点开始喜欢安静。可能是以前就喜欢安静，只是这么明确而清晰地感">
-<meta property="og:image" content="http://odak92g53.bkt.clouddn.com/%E8%AF%95%E9%AA%8C%E5%9C%BA.jpg">
-<meta property="og:image" content="http://odak92g53.bkt.clouddn.com/%E5%82%8D%E6%99%9A%E7%9A%84%E5%B7%A5%E6%93%8D.jpg">
-<meta property="og:updated_time" content="2016-11-06T07:27:36.422Z">
+<meta property="og:description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
+<meta property="og:updated_time" content="2019-09-02T15:15:21.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="忙得没有效率，很久也没有联系老同学">
-<meta name="twitter:description" content="按道理来讲，现在的我应该做项目才对，因为手里头现在有很多事积压下来了，应该赶快弄完，再去做别的才是，但是今天或者是远一点的一段时期内，感觉自己做了很多杂事 ，所以做的事都是没有效率和意义的，因为自己一无所获，从中没有任何的学习。都是为了去完成而做的，感觉这些其实也都是可以避免的，但是却都是没有避免。
- 现在有一个想法就是不太爱热闹了，有点开始喜欢安静。可能是以前就喜欢安静，只是这么明确而清晰地感">
-<meta name="twitter:image" content="http://odak92g53.bkt.clouddn.com/%E8%AF%95%E9%AA%8C%E5%9C%BA.jpg">
+<meta name="twitter:title" content="R语言的meta分析——傻瓜式操作">
+<meta name="twitter:description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
 
     
     <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
@@ -86,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/11/05/20161105/" title="忙得没有效率，很久也没有联系老同学" itemprop="url">忙得没有效率，很久也没有联系老同学</a>
+      <a href="/2019/09/02/R语言的meta分析——傻瓜式操作/" title="R语言的meta分析——傻瓜式操作" itemprop="url">R语言的meta分析——傻瓜式操作</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
 		
   <p class="article-time">
-    <time datetime="2016-11-05T13:48:57.000Z" itemprop="datePublished"> 发表于 2016-11-05</time>
+    <time datetime="2019-09-02T15:06:15.000Z" itemprop="datePublished"> 发表于 2019-09-02</time>
     
   </p>
 </header>
@@ -106,11 +100,7 @@
 		
 		</div>
 		
-		<p> 按道理来讲，现在的我应该做项目才对，因为手里头现在有很多事积压下来了，应该赶快弄完，再去做别的才是，但是今天或者是远一点的一段时期内，感觉自己做了很多杂事 ，所以做的事都是没有效率和意义的，因为自己一无所获，从中没有任何的学习。都是为了去完成而做的，感觉这些其实也都是可以避免的，但是却都是没有避免。</p>
-<p> 现在有一个想法就是不太爱热闹了，有点开始喜欢安静。可能是以前就喜欢安静，只是这么明确而清晰地感受到了自己的心意。静极思动，动极思静。前天去试验场做试验，也算是晒了一天的太阳。中午看到工操的草坪上躺了个人，在那躺着晒太阳。太舒服了。以前自己上高中的时候和凯伟有一次在新建好的草坪上躺了一会儿。周围的人就有点笑话了，而我和他竟然还真的有点在乎他们的笑话了。现在想来那个时候大家还不是都有一个宽容自由的思想，都被所谓的社会规则舒服了很多，自己当时还是意志不坚定，也是受到他们言语的影响。</p>
-<p> 人呢，真是人生生而不自由，要受到那么多玩意的限制。在合理的范围内，我觉得还是得更要去主动一点。不能“己所不欲，勿施于人”，也不要“己所欲，施于人”。善于拒绝有时候会更好的保持自己的独立人格以及思想与行动上的自由。因为脑子里以及整个人身体被自己内心认为没意义的事情充斥的时候真实麻烦，甚至讨厌。</p>
-<p> 有好几个老同学本来说，要忙完这一段打个电话好好聊一下的，所以就更讨厌了。</p>
-<p><img src="http://odak92g53.bkt.clouddn.com/%E8%AF%95%E9%AA%8C%E5%9C%BA.jpg" alt="试验场" title="试验场"><br><img src="http://odak92g53.bkt.clouddn.com/%E5%82%8D%E6%99%9A%E7%9A%84%E5%B7%A5%E6%93%8D.jpg" alt="傍晚的工操" title="傍晚的工操"> </p>
+		<p>R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。<br>其实本质上就是利用meta库，求解<br>（1）加载meta库，镜像源选择“中国上海”<br>（2）看一下成功了没<br>（3）数据加载到rate变量<br>（4）看一下rate成功没<br>（5）进行换<br>（6）写入几个变换到csv文件里<br>（7）进行测试<br>（8）利用metaprop函数进行求解得到meterate<br> (9)后处理得到森林图，“Egger’s”图，和Gallbraith图<br> 代码如下：<br>install.packages(“meta”)<br>library(meta)<br>rate&lt;-read.csv(‘rate.csv’,sep=’,’,header=TRUE)<br>rate<br>transform(rate,p=event/n,log=log(event/n),logit=log((event/n)/(1-event/n)),arcsin=asin(sqrt(event/(n+1))),darcsin=0.5*(asin(sqrt(event/(n+1)))+asin(sqrt((event+1)/(n+1)))))-&gt;rate<br>write.csv(rate,file=’rate.csv’)<br>rate<br>shapiro.test (rate$p)<br>metarate&lt;-metaprop(event,n,study,data=rate,sm=’PLOGIT’,incr=0.5,allincr=TRUE,addincr=FALSE,tile=”lanjie”)<br>funnel(metarate)<br>forest(metarate,digits=2)<br>metabias(metarate,method=”linreg”,plotit=TRUE,k.min=10)<br>metainf(metarate)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,13 +108,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/感想/">感想</a>
+  <a class="article-category-link" href="/categories/代码/">代码</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/日志/">日志</a>
+  <span></span> <a href="/tags/R/">R</a>
   </div>
 
 </div>
@@ -133,7 +123,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/11/05/20161105/" data-title="忙得没有效率，很久也没有联系老同学 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/09/02/R语言的meta分析——傻瓜式操作/" data-title="R语言的meta分析——傻瓜式操作 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,19 +136,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/12/24/闲来扯淡/" title="闲来扯淡">
-  <strong>上一篇：</strong><br/>
-  <span>
-  闲来扯淡</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/09/23/20160923/"  title="清风拂山冈，明月照大江无·">
+<a href="/2019/08/02/利用matlab求函数的解析解及数值解/"  title="利用matlab求函数的解析解及数值解">
  <strong>下一篇：</strong><br/> 
- <span>清风拂山冈，明月照大江无·
+ <span>利用matlab求函数的解析解及数值解
 </span>
 </a>
 </div>
