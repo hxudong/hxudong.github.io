@@ -4,26 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>大一吐槽 | 何妨吟啸且徐行</title>
+    <title>2020FDM开发一维Richards方程有限差分法求解 | 何妨吟啸且徐行</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="旭东">
     
 
     
-    <meta name="description" content="事情的开端是这样的，在某个大学，某一天星期六的晚上，有四个人在默默的期盼着明天来一场春雨，给自己可以带来一天自由的春雨。突然觉得自由这么一个东西竟然要靠一场雨来实现，这未免也容易了。自由之不可得。就在于被别的东西占据了我们的时间。或者说我们的自由不由自己控制。那他被谁偷走了？
-我们被强制参加一些会议，被强制参加一些活动。大学就像蒲公英，看似自由却身不由己。我们来大学就是为了这些么？？？？？显然不">
+    <meta name="description" content="开发日志时间顺序2020.8.26重新安装VS2017+IVF2019
+2020.8.27 开始写框架，水力传导度等参数2020.8.28~2020.8.29半隐式差分的格式一致也没弄出来。
+2020.8.30早上开始在弄边界，不知道为啥，一类的边界还是不收敛。中午去吃饭的时候整个人还是晕乎乎的。朱老师带着娃在车上叫我也没听见下午最后也是没解决这个问题，但是参考了一下崔师姐和朱老师文章的差分格式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大一吐槽">
-<meta property="og:url" content="https://hxudong.github.io/2014/12/05/大一吐槽/index.html">
+<meta property="og:title" content="2020FDM开发一维Richards方程有限差分法求解">
+<meta property="og:url" content="https://hxudong.github.io/2020/09/01/2020FDM开发/index.html">
 <meta property="og:site_name" content="何妨吟啸且徐行">
-<meta property="og:description" content="事情的开端是这样的，在某个大学，某一天星期六的晚上，有四个人在默默的期盼着明天来一场春雨，给自己可以带来一天自由的春雨。突然觉得自由这么一个东西竟然要靠一场雨来实现，这未免也容易了。自由之不可得。就在于被别的东西占据了我们的时间。或者说我们的自由不由自己控制。那他被谁偷走了？
-我们被强制参加一些会议，被强制参加一些活动。大学就像蒲公英，看似自由却身不由己。我们来大学就是为了这些么？？？？？显然不">
-<meta property="og:updated_time" content="2017-07-02T02:02:37.108Z">
+<meta property="og:description" content="开发日志时间顺序2020.8.26重新安装VS2017+IVF2019
+2020.8.27 开始写框架，水力传导度等参数2020.8.28~2020.8.29半隐式差分的格式一致也没弄出来。
+2020.8.30早上开始在弄边界，不知道为啥，一类的边界还是不收敛。中午去吃饭的时候整个人还是晕乎乎的。朱老师带着娃在车上叫我也没听见下午最后也是没解决这个问题，但是参考了一下崔师姐和朱老师文章的差分格式。">
+<meta property="og:updated_time" content="2020-09-01T08:47:14.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大一吐槽">
-<meta name="twitter:description" content="事情的开端是这样的，在某个大学，某一天星期六的晚上，有四个人在默默的期盼着明天来一场春雨，给自己可以带来一天自由的春雨。突然觉得自由这么一个东西竟然要靠一场雨来实现，这未免也容易了。自由之不可得。就在于被别的东西占据了我们的时间。或者说我们的自由不由自己控制。那他被谁偷走了？
-我们被强制参加一些会议，被强制参加一些活动。大学就像蒲公英，看似自由却身不由己。我们来大学就是为了这些么？？？？？显然不">
+<meta name="twitter:title" content="2020FDM开发一维Richards方程有限差分法求解">
+<meta name="twitter:description" content="开发日志时间顺序2020.8.26重新安装VS2017+IVF2019
+2020.8.27 开始写框架，水力传导度等参数2020.8.28~2020.8.29半隐式差分的格式一致也没弄出来。
+2020.8.30早上开始在弄边界，不知道为啥，一类的边界还是不收敛。中午去吃饭的时候整个人还是晕乎乎的。朱老师带着娃在车上叫我也没听见下午最后也是没解决这个问题，但是参考了一下崔师姐和朱老师文章的差分格式。">
 
     
     <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
@@ -83,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/12/05/大一吐槽/" title="大一吐槽" itemprop="url">大一吐槽</a>
+      <a href="/2020/09/01/2020FDM开发/" title="2020FDM开发一维Richards方程有限差分法求解" itemprop="url">2020FDM开发一维Richards方程有限差分法求解</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
 		
   <p class="article-time">
-    <time datetime="2014-12-05T13:48:57.000Z" itemprop="datePublished"> 发表于 2014-12-05</time>
+    <time datetime="2020-09-01T08:32:23.000Z" itemprop="datePublished"> 发表于 2020-09-01</time>
     
   </p>
 </header>
@@ -99,16 +102,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开发日志"><span class="toc-number">1.</span> <span class="toc-text">开发日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间顺序"><span class="toc-number">1.1.</span> <span class="toc-text">时间顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-26"><span class="toc-number">1.1.1.</span> <span class="toc-text">2020.8.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-27-开始写框架，水力传导度等参数"><span class="toc-number">1.1.2.</span> <span class="toc-text">2020.8.27 开始写框架，水力传导度等参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-28-2020-8-29"><span class="toc-number">1.1.3.</span> <span class="toc-text">2020.8.28~2020.8.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-30"><span class="toc-number">1.1.4.</span> <span class="toc-text">2020.8.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-31"><span class="toc-number">1.1.5.</span> <span class="toc-text">2020.8.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-9-1"><span class="toc-number">1.1.6.</span> <span class="toc-text">2020.9.1</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p> 事情的开端是这样的，在某个大学，某一天星期六的晚上，有四个人在默默的期盼着明天来一场春雨，给自己可以带来一天自由的春雨。突然觉得自由这么一个东西竟然要靠一场雨来实现，这未免也容易了。<br>自由之不可得。就在于被别的东西占据了我们的时间。或者说我们的自由不由自己控制。那他被谁偷走了？</p>
-<p>我们被强制参加一些会议，被强制参加一些活动。大学就像蒲公英，看似自由却身不由己。<br>我们来大学就是为了这些么？？？？？显然不是！ 我们可以逃掉吗？ 好像有点难。<br>我们不想被控制，但是好像总有人要控制我们。为什么要控制我们，难道他吃饱饭没事干，想消化一下？</p>
-<p>不情愿的去做自己不喜欢的事情，而美其名曰“这就是不断的锻炼，人要成长就必须得经历这些”。反问一下有没有人愿意主动地来成长一下，来多做一些这种事情？</p>
-<p>突然想到来大学后经常听到这样一句话。这么多事情要你做就是在锻炼你自己的统筹规划能力。但是觉得好像也没有人来主动锻炼，从而增加自己的实力，看来人还是都太懒了，需要别人来管一管。不过总想知道50%A+50%B=C,这个C到底是什么？</p>
-<p>要你管吗？我们真的连自己都管不住吗？好多人都去放纵自己，我觉得就是被束缚得太紧了，太压抑了。</p>
-<p>前两天听课有人说A国就是在制造GDP，现在突然发现有时我们也在制造成果。明明没有的事情硬是给你制造出来。比如说友情这个东西吧，硬是给你想制造点出来。把你俩放一块然后让你们一起做些事情，加深一下印象。然后之后再各自去做自己的事情。之后了结果就是认识了一下。再比如某些活动，用一些文字，然后和照片就表示自己活动过了，然后再总结一下感受，以表示我们很重视，都达到了反思这一哲学高度。其实就没感，何来的受啊！？<br>那我们就要问了，何必要做这些事情，正如老祖宗所说，为了那一个字么?</p>
+		<h1 id="开发日志"><a href="#开发日志" class="headerlink" title="开发日志"></a>开发日志</h1><h2 id="时间顺序"><a href="#时间顺序" class="headerlink" title="时间顺序"></a>时间顺序</h2><h3 id="2020-8-26"><a href="#2020-8-26" class="headerlink" title="2020.8.26"></a>2020.8.26</h3><p>重新安装VS2017+IVF2019</p>
+<h3 id="2020-8-27-开始写框架，水力传导度等参数"><a href="#2020-8-27-开始写框架，水力传导度等参数" class="headerlink" title="2020.8.27 开始写框架，水力传导度等参数"></a>2020.8.27 开始写框架，水力传导度等参数</h3><h3 id="2020-8-28-2020-8-29"><a href="#2020-8-28-2020-8-29" class="headerlink" title="2020.8.28~2020.8.29"></a>2020.8.28~2020.8.29</h3><p>半隐式差分的格式一致也没弄出来。</p>
+<h3 id="2020-8-30"><a href="#2020-8-30" class="headerlink" title="2020.8.30"></a>2020.8.30</h3><p>早上开始在弄边界，不知道为啥，一类的边界还是不收敛。中午去吃饭的时候整个人还是晕乎乎的。朱老师带着娃在车上叫我也没听见<br>下午最后也是没解决这个问题，但是参考了一下崔师姐和朱老师文章的差分格式。</p>
+<h3 id="2020-8-31"><a href="#2020-8-31" class="headerlink" title="2020.8.31"></a>2020.8.31</h3><p>早上和崔师姐聊了一下。看她是怎么处理边界的。后面建议我不要重写，多参考hydrus1d的格式。以及一些处理的小技巧。<br>一维边界基本上是没问题了</p>
+<h3 id="2020-9-1"><a href="#2020-9-1" class="headerlink" title="2020.9.1"></a>2020.9.1</h3><p>解决了2类边界的问题。变量名字打错了，是个大问题。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,13 +118,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/日常/">日常</a>
+  <a class="article-category-link" href="/categories/日志/">日志</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/吐槽/">吐槽</a>
+  <span></span> <a href="/tags/Fortran/">Fortran</a>
   </div>
 
 </div>
@@ -131,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://hxudong.github.io/2014/12/05/大一吐槽/" data-title="大一吐槽 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
+	  <div data-url="https://hxudong.github.io/2020/09/01/2020FDM开发/" data-title="2020FDM开发一维Richards方程有限差分法求解 | 何妨吟啸且徐行" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,14 +146,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/01/未完成的小说-北山的故事/" title="未完成的小说-乔山的故事">
-  <strong>上一篇：</strong><br/>
-  <span>
-  未完成的小说-乔山的故事</span>
+
+<div class="next">
+<a href="/2020/08/23/20200823water/"  title="An Experimental Study on Concrete and Geomembrane Lining Effects on Canal Seepage in Arid Agricultural Areas">
+ <strong>下一篇：</strong><br/> 
+ <span>An Experimental Study on Concrete and Geomembrane Lining Effects on Canal Seepage in Arid Agricultural Areas
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -165,7 +167,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开发日志"><span class="toc-number">1.</span> <span class="toc-text">开发日志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#时间顺序"><span class="toc-number">1.1.</span> <span class="toc-text">时间顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-26"><span class="toc-number">1.1.1.</span> <span class="toc-text">2020.8.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-27-开始写框架，水力传导度等参数"><span class="toc-number">1.1.2.</span> <span class="toc-text">2020.8.27 开始写框架，水力传导度等参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-28-2020-8-29"><span class="toc-number">1.1.3.</span> <span class="toc-text">2020.8.28~2020.8.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-30"><span class="toc-number">1.1.4.</span> <span class="toc-text">2020.8.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-8-31"><span class="toc-number">1.1.5.</span> <span class="toc-text">2020.8.31</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2020-9-1"><span class="toc-number">1.1.6.</span> <span class="toc-text">2020.9.1</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
