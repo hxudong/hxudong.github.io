@@ -1,0 +1,722 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>渠系水利用系数V2.0软件 | 何妨吟啸且徐行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="旭东">
+    
+
+    
+    <meta name="description" content="软件版权归武汉大学所有简要介绍该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上。 该软件的操作步骤如下：灌区信息数据导入、计算、结果查询与导出、数据保存。 该软件的适用行业及用途如下：适用于五级渠道以内的大、中、小型灌区对灌溉水利用系数、渠道水利用系数、渠系水利用系数等评价指标的的计算。并能通过改变参数对多种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渠系水利用系数V2.0软件">
+<meta property="og:url" content="https://hxudong.github.io/2020/07/24/20200724%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B02.0%E8%BD%AF%E4%BB%B6%20-%20%E5%89%AF%E6%9C%AC/index.html">
+<meta property="og:site_name" content="何妨吟啸且徐行">
+<meta property="og:description" content="软件版权归武汉大学所有简要介绍该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上。 该软件的操作步骤如下：灌区信息数据导入、计算、结果查询与导出、数据保存。 该软件的适用行业及用途如下：适用于五级渠道以内的大、中、小型灌区对灌溉水利用系数、渠道水利用系数、渠系水利用系数等评价指标的的计算。并能通过改变参数对多种">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-24T09:27:23.000Z">
+<meta property="article:modified_time" content="2020-07-24T10:22:37.828Z">
+<meta property="article:author" content="旭东">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logowhu.png" alt="何妨吟啸且徐行" title="何妨吟啸且徐行"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="何妨吟啸且徐行">何妨吟啸且徐行</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:hxudong.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/07/24/20200724渠系水利用系数2.0软件 - 副本/" title="渠系水利用系数V2.0软件" itemprop="url">渠系水利用系数V2.0软件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
+		
+  <p class="article-time">
+    <time datetime="2020-07-24T09:27:23.000Z" itemprop="datePublished"> 发表于 2020-07-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83%E5%BD%92%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E6%89%80%E6%9C%89"><span class="toc-number">1.</span> <span class="toc-text">软件版权归武汉大学所有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">1 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%BC%96%E5%86%99%E7%9B%AE%E7%9A%84"><span class="toc-number">3.1.</span> <span class="toc-text">1.1  编写目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">1.2  基本说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">2详细说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%B8%A0%E9%81%93%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">2.1渠道渗漏计算原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1%E8%BD%AF%E4%BB%B61-0%E7%89%88%E6%9C%AC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">2.1.1软件1.0版本计算方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8"><span class="toc-number">4.2.</span> <span class="toc-text">表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2%E8%BD%AF%E4%BB%B62-0%E7%89%88%E6%9C%AC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1.2软件2.0版本计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-1%E6%94%B9%E8%BF%9B%E7%A7%AF%E5%88%86%E5%9E%8B%E8%AE%A1%E7%AE%97"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">2.1.2.1改进积分型计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-2%E5%9F%BA%E4%BA%8E%E5%88%86%E6%AE%B5%E9%80%90%E6%B8%90%E8%AE%A1%E7%AE%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">2.1.2.2基于分段逐渐计算的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E4%B8%AD%E6%B8%A0%E9%81%93%E8%A1%AC%E7%A0%8C%E7%9A%84%E6%8A%98%E5%87%8F%E7%B3%BB%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">2.2渗漏计算中渠道衬砌的折减系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E4%B8%AD%E5%9C%9F%E5%A3%A4%E6%B8%97%E6%BC%8F%E9%87%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.</span> <span class="toc-text">2.3渗漏计算中土壤渗漏量自定义参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1%E5%9C%9F%E5%A3%A4%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.1.</span> <span class="toc-text">2.3.1土壤类型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2%E6%B8%A0%E9%81%93%E8%A1%AC%E7%A0%8C%E8%A1%AC%E7%A0%8C%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.3.2渠道衬砌衬砌参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4%E6%B8%A0%E9%81%93%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%88%B6%E5%BA%A6"><span class="toc-number">4.5.</span> <span class="toc-text">2.4渠道的工作制度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E7%BB%AD%E7%81%8C%E7%9A%84%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B"><span class="toc-number">4.5.1.</span> <span class="toc-text">2.4.1 续灌的计算流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E8%BD%AE%E7%81%8C%E6%97%B6%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B"><span class="toc-number">4.5.2.</span> <span class="toc-text">2.4.2 轮灌时软件的计算流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-1%E6%B8%A0%E9%81%93%E6%B5%81%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">4.5.2.1.</span> <span class="toc-text">2.4.2.1渠道流量计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-2%E7%81%8C%E6%BA%89%E6%97%B6%E9%97%B4%E5%92%8C%E6%B0%B4%E9%87%8F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.5.2.2.</span> <span class="toc-text">2.4.2.2灌溉时间和水量的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E6%B8%A0%E9%81%93%E6%B0%B4%E5%8F%8A%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.</span> <span class="toc-text">2.5渠道水及渠系水利用系数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E7%BB%AD%E7%81%8C%E5%90%84%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8%E6%95%88%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.1.</span> <span class="toc-text">2.5.1续灌各级别利用效率计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2%E8%BD%AE%E7%81%8C%E6%97%B6%E5%90%84%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.2.</span> <span class="toc-text">2.5.2轮灌时各级别利用率计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">5.</span> <span class="toc-text">7使用情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98"><span class="toc-number">6.</span> <span class="toc-text">软件开发人员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1"><span class="toc-number">7.</span> <span class="toc-text">联系邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="软件版权归武汉大学所有"><a href="#软件版权归武汉大学所有" class="headerlink" title="软件版权归武汉大学所有"></a>软件版权归武汉大学所有</h1><h1 id="简要介绍"><a href="#简要介绍" class="headerlink" title="简要介绍"></a>简要介绍</h1><p>该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上。</p>
+<p>该软件的操作步骤如下：灌区信息数据导入、计算、结果查询与导出、数据保存。</p>
+<p>该软件的适用行业及用途如下：适用于五级渠道以内的大、中、小型灌区对灌溉水利用系数、渠道水利用系数、渠系水利用系数等评价指标的的计算。并能通过改变参数对多种渠道衬砌方案、渠道设计类型方案进行模拟和计算，从而评价、指导节水灌溉的发展。</p>
+<p>该软件的应用特点如下：界面简洁，符合水利规划人员的思维特点；只需基础数据便可用软件进行灌溉水利用系数测算，与传统的手工表格计算相比，具有节省人力、时间，提高计算结果精度的优点；所有的计算结果均整理后导出为Excel文件，方便使用人员进行查询。</p>
+<h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><h2 id="1-1-编写目的"><a href="#1-1-编写目的" class="headerlink" title="1.1  编写目的"></a>1.1  编写目的</h2><p>本文档主要对渠系水利用系数2.0版本中相对于1.0版本的改进之处进行说明</p>
+<h2 id="1-2-基本说明"><a href="#1-2-基本说明" class="headerlink" title="1.2  基本说明"></a>1.2  基本说明</h2><p>在大型的农田灌溉中，常需要用到大量、复杂的渠道进行输配水。在水流的输配过程中，会产生水量损失。渠道的水量损失包括渠道水面蒸发损失、渠床渗漏损失、闸门漏水损失、渠道退水损失等。水面蒸发损失一般不足渗漏损失水量的5%，在渠道流量计算中常忽略不计。闸门漏水和渠道退水主要取决于工程质量及用水管理水平，可以通过加强灌区的管理工作予以限制，在计算渠道流量时不予考虑。因此，通常把渠床渗漏损失水量近似看做渠系的总输水量的损失量水，渗透损失水量和渠床土壤性质、地下水埋藏深度和出流条件、渠道输水时间等因素有关。<br>渠系水利用系数是指末级固定渠道流入田间实际的水占从总干渠渠首流入渠系的水量比例，该系数是评价渠系工程状况、运行状况和管理水平的一个综合指标。渠系水利用系数的准确测算，不仅是评估渠系工程状况和管理水平的基础，还关系到地区农业用水安全与粮食安全的长远发展。目前，国内外对于渠系水利用系数的研究多倾向于测定方法和计算公式的修正方面，如在分析大型灌区渠系水利用系数时，考虑渠道越级现象、回归水利用、管理水平三方面的影响，定量计算越级修正系数、回归水利用修正系数以及确定管理水平修正系数等，但实现该类研究的主要途径大多仍停留在传统的表格手工测算上。采用传统表格手工测算的缺点主要有：灌区现场实测测算工作量大、耗资庞大；当计算结果不合理或错误时，检查、修改均较繁杂，大多只是重复性工作；手工计算缺少对原始数据的合理性分析。<br>因此，急需采用计算机技术对渠系水利用系数进行分析测算，以提高渠系水利用系数的测算效率及准确性，对于推求某个地区、某个灌区科学合理的渠系水利用系数，实现数据管理的信息化、标准化，评价、指导节水灌溉的发展，都具有十分重要的实践与理论意义。本软件即为渠系水利用系数的测算软件。<br>1.0版本很好地解决了续灌时利用现有规范和教材推导计算灌区渠系水利用系数的问题。但是在具体计算的过程中只有考斯加科夫公式，对于渠道渗漏量计算时各灌区之间造成渗漏不同的土质差异，衬砌效果随时间变化的现象，以及渠道轮灌渠道和续灌渠道同时存在时的计算没有考虑。2.0版本重点解决了上述4个问题，提高了渗漏损失计算精度，整个计算过程也更加符合灌区实际。</p>
+<h1 id="2详细说明"><a href="#2详细说明" class="headerlink" title="2详细说明"></a>2详细说明</h1><h2 id="2-1渠道渗漏计算原理"><a href="#2-1渠道渗漏计算原理" class="headerlink" title="2.1渠道渗漏计算原理"></a>2.1渠道渗漏计算原理</h2><h3 id="2-1-1软件1-0版本计算方法"><a href="#2-1-1软件1-0版本计算方法" class="headerlink" title="2.1.1软件1.0版本计算方法"></a>2.1.1软件1.0版本计算方法</h3><p>1.0版本中的渠道渗漏计算方法，主要是根据《农田水利学》[1]以及《灌溉排水设计规范》[2]中的计算方法，利用考斯加科夫公式，计算渠道渗漏速率，公式如下：<br>渠道的渗漏速率根据公式(2.1)推导的来计算：</p>
+<pre><code>                     (2.1)
+</code></pre>
+<p>(2.2)</p>
+<p>式中：σ是单位渠道流量损失率；是渗漏速率，m³/s；Q1和Q0是渠道的渠首毛流量和渠尾净流量，m³/s参数A和m,根据土壤类型决定，β是渗水量衬砌折减系数，γ是地下水顶托修正系数；L是渠道长度，km；参数A和m。上述参数均根据文献[1,2]中取值，见表2.1、表2.2、表2.3。<br>具体在计算时采用Q1和Q0的均值代入式(2.1)计算损失率，不断试算得到渠道的毛流量，进而得到渗漏速率。</p>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><p><strong>表2.1渠道土壤参数A和m表</strong></p>
+<table>
+<thead>
+<tr>
+<th>渠床土质</th>
+<th>透水性</th>
+<th>A值</th>
+<th>m值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黏土</td>
+<td>弱</td>
+<td>0.70</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td>重壤土</td>
+<td>中弱</td>
+<td>1.30</td>
+<td>0.35</td>
+</tr>
+<tr>
+<td>中壤土</td>
+<td>中</td>
+<td>1.90</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td>轻壤土</td>
+<td>中强    2.65</td>
+<td>0.45</td>
+<td></td>
+</tr>
+<tr>
+<td>砂壤土及砂质壤土</td>
+<td>强</td>
+<td>3.40</td>
+<td>0.50</td>
+</tr>
+</tbody></table>
+<p><strong>表2.2 地下水顶托系数表(γ)</strong></p>
+<p>渠道净流量(m³/s)    |地下水埋深(m)|<br>—|—|—|—|—|—|—|—|—<br>| |&lt;3    |3|    5|    7.5|10|    15|    20|    25<br>1|    0.63|    0.79|    —|    —|    —|    —|    —|    —<br>3|    0.5|    0.63|    0.82|    —|    —|    —|    —|    —<br>10|    0.41|    0.5|    0.65|    0.79|    0.91|    —|    —|    —<br>20|    0.36|    0.45|    0.57|    0.71|    0.82|    —|    —|    —<br>30|    0.35|    0.42|    0.54|    0.66|    0.77|    0.94|    —|    —<br>50|    0.32|    0.37|    0.49|    0.6|    0.69|    0.84|    0.97|    —<br>100|0.28|    0.33|    0.42|    0.52|    0.58|    0.73|    0.84|    0.94</p>
+<p><strong>表2.3 衬砌渗水量折减系数(β)</strong></p>
+<table>
+<thead>
+<tr>
+<th>防渗措施</th>
+<th align="center">衬砌渠道渗水损失修正系数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>渠槽翻松夯实(厚度大于0.5m)</td>
+<td align="center">0.30~0.20</td>
+</tr>
+<tr>
+<td>渠槽原土夯实(影响深度不小于0.4m)</td>
+<td align="center">0.70~0.50</td>
+</tr>
+<tr>
+<td>灰土夯实(或三合土夯实)</td>
+<td align="center">0.15~0.10</td>
+</tr>
+<tr>
+<td>混凝土护面</td>
+<td align="center">0.15~0.05</td>
+</tr>
+<tr>
+<td>黏土护面</td>
+<td align="center">0.40~0.20</td>
+</tr>
+<tr>
+<td>浆砌石护面</td>
+<td align="center">0.20~0.10</td>
+</tr>
+<tr>
+<td>沥青材料护面</td>
+<td align="center">0.10~0.05</td>
+</tr>
+<tr>
+<td>塑料薄膜</td>
+<td align="center">0.10~0.05</td>
+</tr>
+</tbody></table>
+<h3 id="2-1-2软件2-0版本计算方法"><a href="#2-1-2软件2-0版本计算方法" class="headerlink" title="2.1.2软件2.0版本计算方法"></a>2.1.2软件2.0版本计算方法</h3><p>软件2.0版本中，有两种渗漏计算方法，一是对2.1.1中的计算公式进行积分改进[3,4]，另一种是利用渠道的渗漏速率与水深之间的关系进行计算。</p>
+<h4 id="2-1-2-1改进积分型计算"><a href="#2-1-2-1改进积分型计算" class="headerlink" title="2.1.2.1改进积分型计算"></a>2.1.2.1改进积分型计算</h4><p>式(2.1)中σ是单位渠道流量损失率，同时σ也可以写成式(2.3)<br>(2.3)<br>式中：dQ是渠道流量变化量，m³/s；Q是在渠道长度微元dL处的流量，m³/s；dL是微元的长度，km。<br>联立(2.1)和(2.3)得到<br> (2.4)<br>(2.5)</p>
+<p>(2.6)<br>式中：是渗漏速率，m³/s；Q1和Q0是渠道的渠首毛流量和渠尾净流量，m³/s； 参数A、m、β、γ与2.1.1中意义相同；L是渠道长度，km。</p>
+<h4 id="2-1-2-2基于分段逐渐计算的方法"><a href="#2-1-2-2基于分段逐渐计算的方法" class="headerlink" title="2.1.2.2基于分段逐渐计算的方法"></a>2.1.2.2基于分段逐渐计算的方法</h4><p>渠道的渗漏速率不但是渠道流量的函数，也可以表示为渠道水深的函数。在静水法试验的结果整理以及一般的研究中，常通过渠道的渗漏强度和断面来计算渗漏速率，见式(2.7)。<br>(2.7)<br>式中：S是渗漏速率，m³/s；Qs是渠道的渗漏强度，m³/(s·m)；χ是渠道的湿周。渗漏强度一般通过式(2.6)进行计算。<br>(2.8)<br>式中：Qs是渠道的渗漏强度，L/(h·m2);a和b是拟合数据得到的参数，h为渠道水深，m。新软件中利用该方法进行计算时，需要用户自己定义土壤类型，并输入对应的参数a和b.<br>考虑到渠道沿程由于流量损失及断面的变化，将整个渠道分段逐段计算其渗漏损失以及渠首或渠尾的流量。渠道的流量，根据式(2.9)计算：<br>(2.9)<br>式中：Qi+1和Qi是渠道渠段i进口或出口的流量，L/h；∆S是渠长为的渠段的渗漏强度，L/(h·m2); 是渗漏速率，L/h；<br>渠道的渗漏速率根据式(2.10)进行计算：<br>(2.10)<br>式(2.10)中：是土渠的渗漏强度，根据式(2.11)计算；γ是地下水顶托修正系数，根据地下水埋深和渠道流量决定[1,5]。β是渠道渗漏量衬砌折减系数；是渠道长度，m。从末级渠道的尾部开始分段计算渠道的渗漏速率和渗漏总量，通过分段计算可得到渠首的总流量及放水总量。<br>(2.11)<br>式中：Qs是渠道的渗漏强度，L/(h·m2);a和b是拟合数据得到的参数，h为渠道水深，m。<br>根据公式(2.12)~(2.14)可求解得到各级渠道水深h：<br>(2.12) (2.13) (2.14)<br>式中：Q0是渠道流量，m³/s；A是渠道断面面积，m2；C是谢才系数，；R是水力半径，m；j是渠道的纵坡；n是渠道糙率；χ是渠道湿周，m; m为渠道边坡</p>
+<h2 id="2-2渗漏计算中渠道衬砌的折减系数"><a href="#2-2渗漏计算中渠道衬砌的折减系数" class="headerlink" title="2.2渗漏计算中渠道衬砌的折减系数"></a>2.2渗漏计算中渠道衬砌的折减系数</h2><p>2.0版本相比1.0版本，很重要的一个改进是新版本中考虑到了式(2.1)中，衬砌折减系数β会随时间变化。<br>老版本中β是一个根据材料类型(见表2.3)确定的一个定值，并且不会随着时间变化。这与现实当中衬砌材料的效果逐渐变差不相符合，因此新版本中，采用式（2.15）计算<br>                                   (2.15)<br>式中：Y是衬砌服役时间，年；α是每年衬砌折减系数增加的值；其中是衬砌建设当年(Y=0时)折减系数。这两个参数由用户自己输入，当β大于1.0时取1.0。</p>
+<h2 id="2-3渗漏计算中土壤渗漏量自定义参数"><a href="#2-3渗漏计算中土壤渗漏量自定义参数" class="headerlink" title="2.3渗漏计算中土壤渗漏量自定义参数"></a>2.3渗漏计算中土壤渗漏量自定义参数</h2><p>软件2.0版本相比1.0版本的另一改进之处是，可以添加自定义的土壤参数，以及渠道衬砌参数。</p>
+<h3 id="2-3-1土壤类型参数"><a href="#2-3-1土壤类型参数" class="headerlink" title="2.3.1土壤类型参数"></a>2.3.1土壤类型参数</h3><p>无论是采用考斯加科夫公式或者还是利用渗漏强度公式计算，均需要有土壤类型及其对应的参数。1.0版本中的土壤类型与参数完全来自于《灌溉与排水工程规范》，在计算时对于各个灌区的特殊性考虑不足。2.0版本中，用户可以在软件现在已有的突然类型参数基础上，增加自己的灌区特有的土壤入渗参数A和m或者a和b。</p>
+<h3 id="2-3-2渠道衬砌衬砌参数"><a href="#2-3-2渠道衬砌衬砌参数" class="headerlink" title="2.3.2渠道衬砌衬砌参数"></a>2.3.2渠道衬砌衬砌参数</h3><p>软件可以通过自定义的衬砌参数α和来控制衬砌效果逐年变化的过程。</p>
+<h2 id="2-4渠道的工作制度"><a href="#2-4渠道的工作制度" class="headerlink" title="2.4渠道的工作制度"></a>2.4渠道的工作制度</h2><p>1.0版本中，渠道的工作制度均为续灌。这种情况在一般的中型以上灌区中很少出现。在灌区中，一般骨干渠道，干渠和支渠采用续灌的方式，而低级别的斗渠和农渠采用轮灌方式。当然有些灌区的干渠和支渠也会采用轮灌的形式进行灌溉。<br>2.0版本中最大的改进就是增加了渠道的灌溉制度选择，用户可以在每个渠道对应的分组表中，设置分组数来试验控制渠道是轮灌和还是续灌。具体计算时的差异分述如下：</p>
+<h3 id="2-4-1-续灌的计算流程"><a href="#2-4-1-续灌的计算流程" class="headerlink" title="2.4.1 续灌的计算流程"></a>2.4.1 续灌的计算流程</h3><p>灌溉水从水源地引入田间，需要渠道进行输配水。一般从引水河流开始，经过总干渠——支渠——斗渠——农渠，又因渠道在输水过程，会因为水面蒸发、渠床渗漏、闸门漏水等影响，不可避免地产生水量损失，这就出现了净流量、毛流量、损失流量的概念。它们之间的关系是：<br>                               （2.16）<br>计算从最末级渠段开始。设定好渠道等级及上下级关系后，即从末端渠道联接的田间流量开始，逆向推导每一级渠道的净流量(分配给下级各条渠道流量的总和)与毛流量(从水源地或上级渠道引入的流量)，即第i+1级渠道的毛流量即为第i级渠道的一条支渠道的净流量。</p>
+<h3 id="2-4-2-轮灌时软件的计算流程"><a href="#2-4-2-轮灌时软件的计算流程" class="headerlink" title="2.4.2 轮灌时软件的计算流程"></a>2.4.2 轮灌时软件的计算流程</h3><p>1.0版本中所有渠道均为续灌，采用自田间至水源，逐级推算各渠道的毛流量及损失。轮灌时，首先采用进行续灌运算，得到各级渠道续灌时的毛流量和净流量。而后将渠道的毛流量之比作为分摊上级渠道输水流量的比例根据。具体计算过程如下。</p>
+<h4 id="2-4-2-1渠道流量计算"><a href="#2-4-2-1渠道流量计算" class="headerlink" title="2.4.2.1渠道流量计算"></a>2.4.2.1渠道流量计算</h4><p>轮灌的计算过程中，上级渠道的流量是已知值，通过下级渠道中同时工作的渠道来决定下级渠道的毛流量。以图2-1为例。上级渠道的毛流量为QS，该渠道包括6条下级渠道，其中渠道1、2和3为一个轮灌组，渠道4、5和6为一组。<br>续灌时，根据Q1、Q2、Q3可以求得上级渠道流量Qs。轮灌时，为保证渠道1、2和3在同时灌溉结束，Q1、Q2、Q3真实值保持续灌时的比例，等于各自渠道续灌时流量乘以一个固定比例k，通过试算得到满足渠首流量Qs的k值，再乘以续灌时Q1、Q2、Q3的值，即可得到轮灌时Q1、Q2、Q3的流量值，以此类推，直到得到最末级渠道(农渠)的毛流量。</p>
+<p>图2-1 轮灌水流分配图</p>
+<h4 id="2-4-2-2灌溉时间和水量的计算"><a href="#2-4-2-2灌溉时间和水量的计算" class="headerlink" title="2.4.2.2灌溉时间和水量的计算"></a>2.4.2.2灌溉时间和水量的计算</h4><p>得到农渠的毛流量后，由于没有下级渠道，可以直接推求得到该级渠道的净流量。根据灌溉面积、灌溉定额和田间水利用系数，可以求得农渠的工作时间，工作时毛水量和净水量。同一组农渠的工作时间是斗渠在该轮灌组工作期间的工作时间，该时间乘以斗渠毛流量即为斗渠在该轮灌组的毛水量，农渠的毛水量之和，即为斗渠的净水量。同一斗渠各个轮灌组的毛水量、净水量之和就是整个斗渠的毛水量和净水量。根据支渠与斗渠的轮灌组安排可以求得支渠的相应结果。干渠和更高级渠道同理。</p>
+<h2 id="2-5渠道水及渠系水利用系数的计算"><a href="#2-5渠道水及渠系水利用系数的计算" class="headerlink" title="2.5渠道水及渠系水利用系数的计算"></a>2.5渠道水及渠系水利用系数的计算</h2><p>1.0版本中因为所有渠道的工作制度都是续灌，工作时间相同，因通过流量之比即可得到渠道用水效率。而轮灌时，各轮灌组之间的渠道工作时间一般并不相同，因此通过渠道的净水量与毛水量之比来计算渠道输水效率。</p>
+<h3 id="2-5-1续灌各级别利用效率计算"><a href="#2-5-1续灌各级别利用效率计算" class="headerlink" title="2.5.1续灌各级别利用效率计算"></a>2.5.1续灌各级别利用效率计算</h3><p>(1)渠系水利用系数：末级固定渠道流入田间实际的水占干渠渠首流入水量的比例。本软件中采用的计算表达式为：<br>                           （2.17）<br>(2)渠道水利用系数(用符号表示)：某渠道的净流量与毛流量的比值。本软件中采用的计算表达式为：<br>                                （2.18）<br>(3)某级别的渠道水利用系数(用符号表示)：某级别渠道的净流量与毛流量的比值。本软件中采用的计算表达式为：<br>                         （2.19）<br>(4)灌溉水利用系数(用符号表示，计算时需给定田间水利用系数)：实际灌入农田的有效水量和渠首引入水量的比值。本软件中采用的计算表达式为：<br>                           （2.20）</p>
+<h3 id="2-5-2轮灌时各级别利用率计算"><a href="#2-5-2轮灌时各级别利用率计算" class="headerlink" title="2.5.2轮灌时各级别利用率计算"></a>2.5.2轮灌时各级别利用率计算</h3><p>(1)渠系水利用系数：末级固定渠道流入田间实际的水占干渠渠首流入水量的比例。本软件中采用的计算表达式为：<br>                           （2.21）<br>(2)渠道水利用系数(用符号表示)：某渠道的净流量与毛流量的比值。本软件中采用的计算表达式为：<br>                               （2.22）<br>(3)某级别的渠道水利用系数(用符号表示)：某级别渠道的净流量与毛流量的比值。本软件中采用的计算表达式为：<br>                      （2.23）<br>(4)灌溉水利用系数(用符号表示，计算时需给定田间水利用系数)：实际灌入农田的有效水量和渠首引入水量的比值。本软件中采用的计算表达式为：<br>                          （2.24）</p>
+<h1 id="7使用情况"><a href="#7使用情况" class="headerlink" title="7使用情况"></a>7使用情况</h1><pre><code>软件已经成功在内蒙、江西和湖北得到使用和验证。
+</code></pre>
+<h1 id="软件开发人员"><a href="#软件开发人员" class="headerlink" title="软件开发人员"></a>软件开发人员</h1><p>韩旭东 王修贵 刘馨井雨 许雅欣 黄韬幸 肖雪</p>
+<h1 id="联系邮箱"><a href="#联系邮箱" class="headerlink" title="联系邮箱"></a>联系邮箱</h1><pre><code>wangxg@whu.edu.cn
+hanxudong@whu.edu.cn
+</code></pre>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1]    郭元裕. 农田水利学[M]. 北京: 中国水利水电出版社, 1997.<br>[2]    李现社, 刘斌, 张利民等. 灌溉与排水工程设计规范[M]. 北京: 中国计划出版社, 2018.<br>[3]    (苏联)A.H.考斯加可夫著，陈益秋译. 土壤改良原理[M]. 北京: 中国工业出版社, 1965.<br>[4]    门宝辉. 渠道流量损失及谁利用系数公式的探讨[J]. 中国农村水利水电, 2000, 4: 33–34.<br>[5]    KOSTIAKOV A N. On the dynamics of the coefficient of water-percolation in soils and on the necessity for studying it from a dynamic point of view for purposes of amelioration[J]. Society of Soil Science, 1932, 14(1932): 17–21.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/python/">python</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://hxudong.github.io/2020/07/24/20200724%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B02.0%E8%BD%AF%E4%BB%B6%20-%20%E5%89%AF%E6%9C%AC/" data-title="渠系水利用系数V2.0软件 | 何妨吟啸且徐行" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/08/23/20200823water/" title="An Experimental Study on Concrete and Geomembrane Lining Effects on Canal Seepage in Arid Agricultural Areas">
+  <strong>上一篇：</strong><br/>
+  <span>
+  An Experimental Study on Concrete and Geomembrane Lining Effects on Canal Seepage in Arid Agricultural Areas</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/07/24/20200724渠系水利用系数1.0软件/"  title="渠系水利用系数V1.0软件">
+ <strong>下一篇：</strong><br/> 
+ <span>渠系水利用系数V1.0软件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83%E5%BD%92%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E6%89%80%E6%9C%89"><span class="toc-number">1.</span> <span class="toc-text">软件版权归武汉大学所有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">1 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%BC%96%E5%86%99%E7%9B%AE%E7%9A%84"><span class="toc-number">3.1.</span> <span class="toc-text">1.1  编写目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">1.2  基本说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="toc-number">4.</span> <span class="toc-text">2详细说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%B8%A0%E9%81%93%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">2.1渠道渗漏计算原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1%E8%BD%AF%E4%BB%B61-0%E7%89%88%E6%9C%AC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.1.</span> <span class="toc-text">2.1.1软件1.0版本计算方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8"><span class="toc-number">4.2.</span> <span class="toc-text">表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2%E8%BD%AF%E4%BB%B62-0%E7%89%88%E6%9C%AC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.1.2软件2.0版本计算方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-1%E6%94%B9%E8%BF%9B%E7%A7%AF%E5%88%86%E5%9E%8B%E8%AE%A1%E7%AE%97"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">2.1.2.1改进积分型计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-2%E5%9F%BA%E4%BA%8E%E5%88%86%E6%AE%B5%E9%80%90%E6%B8%90%E8%AE%A1%E7%AE%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">2.1.2.2基于分段逐渐计算的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E4%B8%AD%E6%B8%A0%E9%81%93%E8%A1%AC%E7%A0%8C%E7%9A%84%E6%8A%98%E5%87%8F%E7%B3%BB%E6%95%B0"><span class="toc-number">4.3.</span> <span class="toc-text">2.2渗漏计算中渠道衬砌的折减系数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3%E6%B8%97%E6%BC%8F%E8%AE%A1%E7%AE%97%E4%B8%AD%E5%9C%9F%E5%A3%A4%E6%B8%97%E6%BC%8F%E9%87%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.</span> <span class="toc-text">2.3渗漏计算中土壤渗漏量自定义参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1%E5%9C%9F%E5%A3%A4%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.1.</span> <span class="toc-text">2.3.1土壤类型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2%E6%B8%A0%E9%81%93%E8%A1%AC%E7%A0%8C%E8%A1%AC%E7%A0%8C%E5%8F%82%E6%95%B0"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.3.2渠道衬砌衬砌参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4%E6%B8%A0%E9%81%93%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%88%B6%E5%BA%A6"><span class="toc-number">4.5.</span> <span class="toc-text">2.4渠道的工作制度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E7%BB%AD%E7%81%8C%E7%9A%84%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B"><span class="toc-number">4.5.1.</span> <span class="toc-text">2.4.1 续灌的计算流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E8%BD%AE%E7%81%8C%E6%97%B6%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B"><span class="toc-number">4.5.2.</span> <span class="toc-text">2.4.2 轮灌时软件的计算流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-1%E6%B8%A0%E9%81%93%E6%B5%81%E9%87%8F%E8%AE%A1%E7%AE%97"><span class="toc-number">4.5.2.1.</span> <span class="toc-text">2.4.2.1渠道流量计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-2-2%E7%81%8C%E6%BA%89%E6%97%B6%E9%97%B4%E5%92%8C%E6%B0%B4%E9%87%8F%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.5.2.2.</span> <span class="toc-text">2.4.2.2灌溉时间和水量的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5%E6%B8%A0%E9%81%93%E6%B0%B4%E5%8F%8A%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.</span> <span class="toc-text">2.5渠道水及渠系水利用系数的计算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E7%BB%AD%E7%81%8C%E5%90%84%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8%E6%95%88%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.1.</span> <span class="toc-text">2.5.1续灌各级别利用效率计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2%E8%BD%AE%E7%81%8C%E6%97%B6%E5%90%84%E7%BA%A7%E5%88%AB%E5%88%A9%E7%94%A8%E7%8E%87%E8%AE%A1%E7%AE%97"><span class="toc-number">4.6.2.</span> <span class="toc-text">2.5.2轮灌时各级别利用率计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">5.</span> <span class="toc-text">7使用情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98"><span class="toc-number">6.</span> <span class="toc-text">软件开发人员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1"><span class="toc-number">7.</span> <span class="toc-text">联系邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">8.</span> <span class="toc-text">参考文献</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/paper/" title="paper">paper<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/代码/" title="代码">代码<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/写的不好/" title="写的不好">写的不好<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感情/" title="感情">感情<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感想/" title="感想">感想<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日常/" title="日常">日常<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/研究生/" title="研究生">研究生<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/说事/" title="说事">说事<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书/" title="读书">读书<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/软件操作/" title="软件操作">软件操作<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日志/" title="日志">日志<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/感想/" title="感想">感想<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vb/" title="vb">vb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GIS/" title="GIS">GIS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fortran/" title="Fortran">Fortran<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/greta井雨/" title="greta井雨">greta井雨<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/武大/" title="武大">武大<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/中秋/" title="中秋">中秋<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/matlab/" title="matlab">matlab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/吐槽/" title="吐槽">吐槽<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小说/" title="小说">小说<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/高中/" title="高中">高中<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/记录/" title="记录">记录<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/扯淡/" title="扯淡">扯淡<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研/" title="科研">科研<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://xiaodouhua.github.io" target="_blank" title="豆子的博客">豆</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://kiwi-yan.github.io/" target="_blank" title="死锁的人生">Kaiwei&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Xudong in Wuhan. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1611529032" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2022 
+		
+		<a href="/about" target="_blank" title="旭东">旭东</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

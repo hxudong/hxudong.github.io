@@ -1,0 +1,682 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>渠系水利用系数V1.0软件 | 何妨吟啸且徐行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="旭东">
+    
+
+    
+    <meta name="description" content="软件版权归武汉大学所有简要介绍该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上，手工计算存在几个缺点：当计算结果不合理或错误时，检查、修改均较繁杂，大多只是重复性工作；手工计算缺少对原始数据的合理性分析。本软件以逆向递推水量平衡法为核心算法，将计算方法编写成程序，利用计算机进行辅助计算，提高计算效率及结果的精">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渠系水利用系数V1.0软件">
+<meta property="og:url" content="https://hxudong.github.io/2020/07/24/20200724%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B01.0%E8%BD%AF%E4%BB%B6/index.html">
+<meta property="og:site_name" content="何妨吟啸且徐行">
+<meta property="og:description" content="软件版权归武汉大学所有简要介绍该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上，手工计算存在几个缺点：当计算结果不合理或错误时，检查、修改均较繁杂，大多只是重复性工作；手工计算缺少对原始数据的合理性分析。本软件以逆向递推水量平衡法为核心算法，将计算方法编写成程序，利用计算机进行辅助计算，提高计算效率及结果的精">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-24T03:27:23.000Z">
+<meta property="article:modified_time" content="2020-07-24T09:10:21.983Z">
+<meta property="article:author" content="旭东">
+<meta property="article:tag" content="vb">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logowhu.png" alt="何妨吟啸且徐行" title="何妨吟啸且徐行"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="何妨吟啸且徐行">何妨吟啸且徐行</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:hxudong.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/07/24/20200724渠系水利用系数1.0软件/" title="渠系水利用系数V1.0软件" itemprop="url">渠系水利用系数V1.0软件</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
+		
+  <p class="article-time">
+    <time datetime="2020-07-24T03:27:23.000Z" itemprop="datePublished"> 发表于 2020-07-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83%E5%BD%92%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E6%89%80%E6%9C%89"><span class="toc-number">1.</span> <span class="toc-text">软件版权归武汉大学所有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">2  软件概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">2.1  目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">2.2  功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E7%81%8C%E5%8C%BA%E4%BF%A1%E6%81%AF%E5%BD%95%E5%85%A5%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.2.1  灌区信息录入功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2.2  数据导入功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E8%AE%A1%E7%AE%97%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.3.</span> <span class="toc-text">2.2.3  计算功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E7%BB%93%E6%9E%9C%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.4.</span> <span class="toc-text">2.2.4  结果查询与导出功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%80%A7%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">2.3  性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E6%95%B0%E6%8D%AE%E7%B2%BE%E7%A1%AE%E5%BA%A6"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1 数据精确度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E6%97%B6%E9%97%B4%E7%89%B9%E6%80%A7"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2 时间特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3 灵活性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">3  运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%A1%AC%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">4.1.</span> <span class="toc-text">3.1  硬件环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%94%AF%E6%8C%81%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">3.2  支持软件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E4%B8%80%E8%A7%88%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">6操作命令一览表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">6.</span> <span class="toc-text">7使用情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98"><span class="toc-number">7.</span> <span class="toc-text">软件开发人员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1"><span class="toc-number">8.</span> <span class="toc-text">联系邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">9.</span> <span class="toc-text">参考文献</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="软件版权归武汉大学所有"><a href="#软件版权归武汉大学所有" class="headerlink" title="软件版权归武汉大学所有"></a>软件版权归武汉大学所有</h1><h1 id="简要介绍"><a href="#简要介绍" class="headerlink" title="简要介绍"></a>简要介绍</h1><p>该软件的创作目的如下：渠系水利用系数是衡量渠系工作状况、渠系管理水平的综合指标。目前对渠系水利用系数的计算大多仍停留在传统的表格手工测算上，手工计算存在几个缺点：当计算结果不合理或错误时，检查、修改均较繁杂，大多只是重复性工作；手工计算缺少对原始数据的合理性分析。本软件以逆向递推水量平衡法为核心算法，将计算方法编写成程序，利用计算机进行辅助计算，提高计算效率及结果的精度。</p>
+<p>该软件的主要功能如下：灌区信息录入、数据导入、计算、结果查询与导出、数据保存。</p>
+<p>该软件的适用行业及用途如下：适用于中小型灌区对灌溉水利用系数、渠道水利用系数、渠系水利用系数等评价指标的的计算，并能通过改变参数对多种渠道衬砌方案进行模拟和计算，从而评价、指导节水灌溉的发展。</p>
+<p>该软件的技术特点如下：界面简洁，符合水利规划人员的思维特点，只需基础数据便可用软件进行灌溉水利用系数测算，与传统的手工表格计算相比，具有节省人力、时间，提高计算结果精度的优点。</p>
+<h1 id="2-软件概述"><a href="#2-软件概述" class="headerlink" title="2  软件概述"></a>2  软件概述</h1><h2 id="2-1-目标"><a href="#2-1-目标" class="headerlink" title="2.1  目标"></a>2.1  目标</h2><p>本软件将以渠系水利用系数诸多算法中最经典的计算方法——逆向递推水量平衡法为核心算法[详见：郭元裕主编，农田水利学（第三版），北京：中国水利水电出版社，1997年10月]，建立集“灌区信息录入、数据导入与导出、数据计算、结果查询与导出”等功能为一体的渠系水利用系数测算系统，利用计算机程序解决传统手工计算出错率高、重复性大的问题，提高区域渠系水利用系数测算的准确度和测算效率。在给定田间水利用系数的情况下，本软件还可以计算灌区的灌溉水利用系数。</p>
+<h2 id="2-2-功能"><a href="#2-2-功能" class="headerlink" title="2.2  功能"></a>2.2  功能</h2><h3 id="2-2-1-灌区信息录入功能"><a href="#2-2-1-灌区信息录入功能" class="headerlink" title="2.2.1  灌区信息录入功能"></a>2.2.1  灌区信息录入功能</h3><p>包括新建灌区、打开灌区、保存灌区、退出。<br>新建灌区：建立新的灌区文档，输入灌区基本信息。提供“灌区名称”、“灌区类型”、“灌区面积”、“设计灌区面积”、“总引水量”、“工程管理状况”6个基本信息输入框。<br>打开灌区：打开已经建立并保存的灌区文件。<br>保存灌区：保存经过计算、修改的最新灌区文件。<br>退出：退出灌区信息录入菜单。</p>
+<h3 id="2-2-2-数据导入功能"><a href="#2-2-2-数据导入功能" class="headerlink" title="2.2.2  数据导入功能"></a>2.2.2  数据导入功能</h3><p>初始版本中，考虑四级渠系。需要通过收集灌区干、支、斗、农四个级别渠道的长度、衬砌情况、地下水埋深及对应田块信息、田间水利用系数等基本数据，分别输入给定的“干渠信息输入表”、“支渠信息输入表”、“斗渠信息输入表”、“农渠信息输入表”、“田块信息输入表”中，数据全部输入完成后，才能将表格导入本软件。</p>
+<h3 id="2-2-3-计算功能"><a href="#2-2-3-计算功能" class="headerlink" title="2.2.3  计算功能"></a>2.2.3  计算功能</h3><p>程序读取导入到本软件的数据，并采用逆向递推水量平衡法进行计算。</p>
+<h3 id="2-2-4-结果查询与导出功能"><a href="#2-2-4-结果查询与导出功能" class="headerlink" title="2.2.4  结果查询与导出功能"></a>2.2.4  结果查询与导出功能</h3><p>包括渠道关系图查询、渠道参数查询、渠系水利用系数查询、灌溉水利用系数查询、各级别渠道水利用系数查询、渠道水利用系数查询。<br>渠道关系图查询：查看各级别渠道间关系。<br>渠道参数查询：查看各渠道衬砌段数目、材料、土壤类型、地下水埋深。<br>渠系水利用系数查询：查看渠系水利用系数测算结果。<br>灌溉水利用系数查询：查看灌区灌溉水利用系数测算结果。<br>各级别渠道水利用系数查询：查看干渠、支渠、斗渠、农渠中某一级别或某几个级别的渠道水利用系数。<br>渠道水利用系数查询：查看某一条或几条渠道的渠道水利用系数。<br>以上查询结果均能以Excel或WPS电子表格形式从程序导出。</p>
+<h2 id="2-3-性能"><a href="#2-3-性能" class="headerlink" title="2.3  性能"></a>2.3  性能</h2><h3 id="2-3-1-数据精确度"><a href="#2-3-1-数据精确度" class="headerlink" title="2.3.1 数据精确度"></a>2.3.1 数据精确度</h3><p>数据显示精度精确到小数点后四位，数据输出及处理数据的精度为小数点后15位。</p>
+<h3 id="2-3-2-时间特性"><a href="#2-3-2-时间特性" class="headerlink" title="2.3.2 时间特性"></a>2.3.2 时间特性</h3><p>数据导入时间：数据导入速度与用户硬盘读写速度有关，一般在15秒以内。<br>响应时间：所有查询操作均能够做到及时响应，计算操作响应时间一般在1秒以内。</p>
+<h3 id="2-3-3-灵活性"><a href="#2-3-3-灵活性" class="headerlink" title="2.3.3 灵活性"></a>2.3.3 灵活性</h3><p>本软件基于Windows操作平台，安全稳定；可单机运行，无需提供网络条件，不受办公地点的限制，可供灌区管理单位、科研人员及研究生随时随地学习使用；无需安装操作即可打开软件，具有良好的可移植性。</p>
+<h1 id="3-运行环境"><a href="#3-运行环境" class="headerlink" title="3  运行环境"></a>3  运行环境</h1><h2 id="3-1-硬件环境"><a href="#3-1-硬件环境" class="headerlink" title="3.1  硬件环境"></a>3.1  硬件环境</h2><p>本系统服务器端硬件环境同客户端，硬件要求如下：<br>客户端：任意机型。<br>（1）内存最小容量：512MB<br>（2）输入设备：键盘、鼠标，输出设备：显示器<br>（3）图形显卡支持DirectX</p>
+<h2 id="3-2-支持软件"><a href="#3-2-支持软件" class="headerlink" title="3.2  支持软件"></a>3.2  支持软件</h2><p>（1）windows操作系统<br>（2）Excel或WPS等电子表格软件<br>（3）Microsoft.Net环境支持</p>
+<h1 id="6操作命令一览表"><a href="#6操作命令一览表" class="headerlink" title="6操作命令一览表"></a>6操作命令一览表</h1><table>
+<thead>
+<tr>
+<th>操作命令</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>登录</td>
+<td align="center">点击登录本软件</td>
+</tr>
+<tr>
+<td>文件</td>
+<td align="center">点击选择新建灌区、打开灌区、保存灌区、退出</td>
+</tr>
+<tr>
+<td>新建灌区</td>
+<td align="center">点击输入灌区基本信息</td>
+</tr>
+<tr>
+<td>打开灌区</td>
+<td align="center">点击打开已保存的灌区</td>
+</tr>
+<tr>
+<td>保存灌区</td>
+<td align="center">点击对最新灌区信息进行保存</td>
+</tr>
+<tr>
+<td>导入</td>
+<td align="center">点击向本程序导入数据</td>
+</tr>
+<tr>
+<td>计算</td>
+<td align="center">点击进行计算</td>
+</tr>
+<tr>
+<td>结果查询</td>
+<td align="center">点击查询渠道关系图、渠道参数、渠系水利用系数、灌溉水利用系数、各级别渠道水利用系数、渠道水利用系数</td>
+</tr>
+<tr>
+<td>帮助</td>
+<td align="center">点击获得使用帮助</td>
+</tr>
+<tr>
+<td>确定</td>
+<td align="center">点击确认本次操作</td>
+</tr>
+<tr>
+<td>取消    点击取消本次操作</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>退出</td>
+<td align="center">点击退出本软件</td>
+</tr>
+</tbody></table>
+<h1 id="7使用情况"><a href="#7使用情况" class="headerlink" title="7使用情况"></a>7使用情况</h1><pre><code>软件已经成功在内蒙、江西和湖北得到使用和验证。
+</code></pre>
+<h1 id="软件开发人员"><a href="#软件开发人员" class="headerlink" title="软件开发人员"></a>软件开发人员</h1><p>王修贵、许雅欣、黄韬幸、黄永忠、谢亨旺、吴灏、韩旭东</p>
+<h1 id="联系邮箱"><a href="#联系邮箱" class="headerlink" title="联系邮箱"></a>联系邮箱</h1><pre><code>wangxg@whu.edu.cn
+hanxudong@whu.edu.cn
+</code></pre>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><pre><code>《基于渗漏损失的渠系水利用系数分析》
+《灌溉水利用系数在不同年型的变化特征--以湖北省温峡口灌区为例》
+</code></pre>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/vb/">vb</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://hxudong.github.io/2020/07/24/20200724%E6%B8%A0%E7%B3%BB%E6%B0%B4%E5%88%A9%E7%94%A8%E7%B3%BB%E6%95%B01.0%E8%BD%AF%E4%BB%B6/" data-title="渠系水利用系数V1.0软件 | 何妨吟啸且徐行" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/07/24/20200724渠系水利用系数2.0软件 - 副本/" title="渠系水利用系数V2.0软件">
+  <strong>上一篇：</strong><br/>
+  <span>
+  渠系水利用系数V2.0软件</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/07/24/20200724gaokao - 副本/"  title="2020hexo 重新迁移">
+ <strong>下一篇：</strong><br/> 
+ <span>2020hexo 重新迁移
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83%E5%BD%92%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E6%89%80%E6%9C%89"><span class="toc-number">1.</span> <span class="toc-text">软件版权归武汉大学所有</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E8%A6%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">简要介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E6%A6%82%E8%BF%B0"><span class="toc-number">3.</span> <span class="toc-text">2  软件概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.1.</span> <span class="toc-text">2.1  目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">2.2  功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E7%81%8C%E5%8C%BA%E4%BF%A1%E6%81%AF%E5%BD%95%E5%85%A5%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.1.</span> <span class="toc-text">2.2.1  灌区信息录入功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.2.</span> <span class="toc-text">2.2.2  数据导入功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E8%AE%A1%E7%AE%97%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.3.</span> <span class="toc-text">2.2.3  计算功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E7%BB%93%E6%9E%9C%E6%9F%A5%E8%AF%A2%E4%B8%8E%E5%AF%BC%E5%87%BA%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.4.</span> <span class="toc-text">2.2.4  结果查询与导出功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%80%A7%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">2.3  性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E6%95%B0%E6%8D%AE%E7%B2%BE%E7%A1%AE%E5%BA%A6"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1 数据精确度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E6%97%B6%E9%97%B4%E7%89%B9%E6%80%A7"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2 时间特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3 灵活性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">3  运行环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E7%A1%AC%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-number">4.1.</span> <span class="toc-text">3.1  硬件环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%94%AF%E6%8C%81%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">3.2  支持软件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E4%B8%80%E8%A7%88%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">6操作命令一览表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">6.</span> <span class="toc-text">7使用情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98"><span class="toc-number">7.</span> <span class="toc-text">软件开发人员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E7%B3%BB%E9%82%AE%E7%AE%B1"><span class="toc-number">8.</span> <span class="toc-text">联系邮箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">9.</span> <span class="toc-text">参考文献</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/paper/" title="paper">paper<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/代码/" title="代码">代码<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/写的不好/" title="写的不好">写的不好<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感情/" title="感情">感情<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感想/" title="感想">感想<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日常/" title="日常">日常<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日记/" title="日记">日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/研究生/" title="研究生">研究生<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/说事/" title="说事">说事<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书/" title="读书">读书<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/软件操作/" title="软件操作">软件操作<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/日志/" title="日志">日志<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/感想/" title="感想">感想<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vb/" title="vb">vb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GIS/" title="GIS">GIS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fortran/" title="Fortran">Fortran<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/greta井雨/" title="greta井雨">greta井雨<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/武大/" title="武大">武大<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/中秋/" title="中秋">中秋<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/matlab/" title="matlab">matlab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/吐槽/" title="吐槽">吐槽<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小说/" title="小说">小说<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/高中/" title="高中">高中<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/记录/" title="记录">记录<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/扯淡/" title="扯淡">扯淡<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研/" title="科研">科研<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://xiaodouhua.github.io" target="_blank" title="豆子的博客">豆</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://kiwi-yan.github.io/" target="_blank" title="死锁的人生">Kaiwei&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Xudong in Wuhan. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1611529032" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2022 
+		
+		<a href="/about" target="_blank" title="旭东">旭东</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
