@@ -4,25 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>R语言的meta分析——傻瓜式操作 | 何妨吟啸且徐行</title>
+    <title>20220815_newstart | 何妨吟啸且徐行</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="旭东">
     
 
     
-    <meta name="description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
+    <meta name="description" content="测试一下插入本地图片 # 添加本地路径的时候，图片放在和日志同名的文件夹里，在路径中只用写照片的名字“moon.jpg” 如果图片显示出来，说明成功了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="R语言的meta分析——傻瓜式操作">
-<meta property="og:url" content="https://hxudong.github.io/2019/09/02/R%E8%AF%AD%E8%A8%80%E7%9A%84meta%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E5%82%BB%E7%93%9C%E5%BC%8F%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:title" content="20220815_newstart">
+<meta property="og:url" content="https://hxudong.github.io/2022/08/15/20220815-newstart/index.html">
 <meta property="og:site_name" content="何妨吟啸且徐行">
-<meta property="og:description" content="R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。其实本质上就是利用meta库，求解（1）加载meta库，镜像源选择“中国上海”（2）看一下成功了没（3）数据加载到rate变量（4）看一下rate成功没（5）进行换（6）写入几个变换到csv文件里（7）进行测试（8）利用metaprop函数进行求解得到meterate (9)后处理得到森林图，“">
+<meta property="og:description" content="测试一下插入本地图片 # 添加本地路径的时候，图片放在和日志同名的文件夹里，在路径中只用写照片的名字“moon.jpg” 如果图片显示出来，说明成功了">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-09-02T15:06:15.000Z">
-<meta property="article:modified_time" content="2020-07-24T05:55:47.521Z">
+<meta property="og:image" content="https://hxudong.github.io/g/20220813bolg/blog/source/_posts/20220815-newstart/moon.jpg">
+<meta property="og:image" content="https://hxudong.github.io/2022/08/15/20220815-newstart/moon.jpg">
+<meta property="article:published_time" content="2022-08-15T07:35:00.000Z">
+<meta property="article:modified_time" content="2022-08-15T08:00:01.438Z">
 <meta property="article:author" content="旭东">
-<meta property="article:tag" content="R">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hxudong.github.io/g/20220813bolg/blog/source/_posts/20220815-newstart/moon.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
@@ -36,8 +39,6 @@
     
     
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/%02.css">
-<link rel="stylesheet" href="/.css">
 
 <meta name="generator" content="Hexo 5.4.2"></head>
 
@@ -86,14 +87,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/09/02/R语言的meta分析——傻瓜式操作/" title="R语言的meta分析——傻瓜式操作" itemprop="url">R语言的meta分析——傻瓜式操作</a>
+      <a href="/2022/08/15/20220815-newstart/" title="20220815_newstart" itemprop="url">20220815_newstart</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
 		
   <p class="article-time">
-    <time datetime="2019-09-02T15:06:15.000Z" itemprop="datePublished"> 发表于 2019-09-02</time>
+    <time datetime="2022-08-15T07:35:00.000Z" itemprop="datePublished"> 发表于 2022-08-15</time>
     
   </p>
 </header>
@@ -106,97 +107,10 @@
 		
 		</div>
 		
-		<p>R语言之前看数据分析的时候想学来着，但是没有操作，最后选择了python。近日帮同学弄一个meta分析。<br>其实本质上就是利用meta库，求解<br>（1）加载meta库，镜像源选择“中国上海”<br>（2）看一下成功了没<br>（3）数据加载到rate变量<br>（4）看一下rate成功没<br>（5）进行换<br>（6）写入几个变换到csv文件里<br>（7）进行测试<br>（8）利用metaprop函数进行求解得到meterate<br> (9)后处理得到森林图，“Egger’s”图，和Gallbraith图<br> 代码如下：<br>install.packages(“meta”)<br>library(meta)<br>rate&lt;-read.csv(‘rate.csv’,sep=’,’,header=TRUE)<br>rate<br>transform(rate,p=event/n,log=log(event/n),logit=log((event/n)/(1-event/n)),arcsin=asin(sqrt(event/(n+1))),darcsin=0.5*(asin(sqrt(event/(n+1)))+asin(sqrt((event+1)/(n+1)))))-&gt;rate<br>write.csv(rate,file=’rate.csv’)<br>rate<br>shapiro.test (rate$p)<br>metarate&lt;-metaprop(event,n,study,data=rate,sm=’PLOGIT’,incr=0.5,allincr=TRUE,addincr=FALSE,tile=”lanjie”)<br>funnel(metarate)<br>forest(metarate,digits=2)<br>metabias(metarate,method=”linreg”,plotit=TRUE,k.min=10)<br>metainf(metarate)|<br>表格的整理格式如下</p>
-<p>table1</p>
-<table>
-<thead>
-<tr>
-<th>Study</th>
-<th align="center">Event</th>
-<th align="right">Num</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>M. Muzza et al 2014</td>
-<td align="center">13</td>
-<td align="right">30</td>
-</tr>
-<tr>
-<td>F. Wang et al 2013</td>
-<td align="center">10</td>
-<td align="right">67</td>
-</tr>
-<tr>
-<td>HyeYoung Jin et al 2014</td>
-<td align="center">20</td>
-<td align="right">43</td>
-</tr>
-<tr>
-<td>Feng Sun et al 2018</td>
-<td align="center">66</td>
-<td align="right">110</td>
-</tr>
-<tr>
-<td>C. Fu et al 2015</td>
-<td align="center">13</td>
-<td align="right">45</td>
-</tr>
-<tr>
-<td>Kyoung-Jin Park 2015</td>
-<td align="center">19</td>
-<td align="right">112</td>
-</tr>
-<tr>
-<td>Chunyun Fu 2016</td>
-<td align="center">13</td>
-<td align="right">45</td>
-</tr>
-<tr>
-<td>Matsuo et al 2016</td>
-<td align="center">11</td>
-<td align="right">48</td>
-</tr>
-<tr>
-<td>Hong Jiang 2016</td>
-<td align="center">10</td>
-<td align="right">12</td>
-</tr>
-<tr>
-<td>M. Tan et al 2016</td>
-<td align="center">60</td>
-<td align="right">96</td>
-</tr>
-<tr>
-<td>Long et al 2018</td>
-<td align="center">49</td>
-<td align="right">106</td>
-</tr>
-<tr>
-<td>X. Fan et al 2017</td>
-<td align="center">21</td>
-<td align="right">66</td>
-</tr>
-</tbody></table>
-<p>tabel2</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th align="center">表头</th>
-<th align="right">表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>内容</td>
-<td align="center">内容 <br> 内容</td>
-<td align="right">内容</td>
-</tr>
-<tr>
-<td>内容</td>
-<td align="center">内容</td>
-<td align="right">内容</td>
-</tr>
-</tbody></table>
+		<p>测试一下插入本地图片</p>
+<p>#<img src="/g/20220813bolg/blog/source/_posts/20220815-newstart/moon.jpg" alt="图片名-测试图片" title="moon"><br><img src="moon.jpg" alt="图片名-测试图片" title="moon"></p>
+<p>添加本地路径的时候，图片放在和日志同名的文件夹里，在路径中只用写照片的名字“moon.jpg”</p>
+<p>如果图片显示出来，说明成功了</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -204,13 +118,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+  <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/R/">R</a>
+  <span></span> <a href="/tags/hexo/">hexo</a>
   </div>
 
 </div>
@@ -219,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://hxudong.github.io/2019/09/02/R%E8%AF%AD%E8%A8%80%E7%9A%84meta%E5%88%86%E6%9E%90%E2%80%94%E2%80%94%E5%82%BB%E7%93%9C%E5%BC%8F%E6%93%8D%E4%BD%9C/" data-title="R语言的meta分析——傻瓜式操作 | 何妨吟啸且徐行" data-tsina="" class="share clearfix">
+	  <div data-url="https://hxudong.github.io/2022/08/15/20220815-newstart/" data-title="20220815_newstart | 何妨吟啸且徐行" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -232,19 +146,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2020/07/24/20200724gaokao/" title="妹妹表弟第二年高考">
-  <strong>上一篇：</strong><br/>
-  <span>
-  妹妹表弟第二年高考</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/08/02/利用matlab求函数的解析解及数值解/"  title="利用matlab求函数的解析解及数值解">
+<a href="/2022/08/13/hello-world/"  title="2022 再次买笔记本后装博客">
  <strong>下一篇：</strong><br/> 
- <span>利用matlab求函数的解析解及数值解
+ <span>2022 再次买笔记本后装博客
 </span>
 </a>
 </div>
