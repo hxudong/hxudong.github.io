@@ -1,0 +1,761 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Modflow2005的输入输出文件介绍 | 何妨吟啸且徐行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="旭东">
+    
+
+    
+    <meta name="description" content="Modlfow的输入输出文件本文主要是以modflow2005，且以安徽利辛区的文件为案例。 输入文件NAM 文件(.nam)这是一个总文件，其中写着该案例里面都包含哪些文件;文件的后缀是.nam; 下面是一个详细的示例 LIST   53 &#39;.\modflow_in\2018_2019_anhui.LST&#39; PCG    19 &#39;.\modflow_in\han.pcg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Modflow2005的输入输出文件介绍">
+<meta property="og:url" content="https://hxudong.github.io/2022/08/21/20220821-modflow2005/index.html">
+<meta property="og:site_name" content="何妨吟啸且徐行">
+<meta property="og:description" content="Modlfow的输入输出文件本文主要是以modflow2005，且以安徽利辛区的文件为案例。 输入文件NAM 文件(.nam)这是一个总文件，其中写着该案例里面都包含哪些文件;文件的后缀是.nam; 下面是一个详细的示例 LIST   53 &#39;.\modflow_in\2018_2019_anhui.LST&#39; PCG    19 &#39;.\modflow_in\han.pcg">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-21T13:02:49.000Z">
+<meta property="article:modified_time" content="2022-08-21T13:06:24.199Z">
+<meta property="article:author" content="旭东">
+<meta property="article:tag" content="fortran">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="何妨吟啸且徐行" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logowhu.png" alt="何妨吟啸且徐行" title="何妨吟啸且徐行"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="何妨吟啸且徐行">何妨吟啸且徐行</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:hxudong.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2022/08/21/20220821-modflow2005/" title="Modflow2005的输入输出文件介绍" itemprop="url">Modflow2005的输入输出文件介绍</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="旭东" target="_blank" itemprop="author">旭东</a>
+		
+  <p class="article-time">
+    <time datetime="2022-08-21T13:02:49.000Z" itemprop="datePublished"> 发表于 2022-08-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Modlfow%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Modlfow的输入输出文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">输入文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAM-%E6%96%87%E4%BB%B6-nam"><span class="toc-number">1.2.</span> <span class="toc-text">NAM 文件(.nam)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#list%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">list文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BAS%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">BAS文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PCG-%E6%B1%82%E8%A7%A3%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">PCG-求解器文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCF6"><span class="toc-number">1.2.4.</span> <span class="toc-text">BCF6</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC1%E8%A1%8C"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">第1行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC2%E8%A1%8C"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">第2行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC3%E8%A1%8C"><span class="toc-number">1.2.5.</span> <span class="toc-text">第3行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BD%99%E9%83%A8%E5%88%86"><span class="toc-number">1.2.6.</span> <span class="toc-text">其余部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RCH%E8%A1%A5%E7%BB%99%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.7.</span> <span class="toc-text">RCH补给文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIV-%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.8.</span> <span class="toc-text">RIV 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OC%E6%96%87%E4%BB%B6-output-control"><span class="toc-number">1.2.9.</span> <span class="toc-text">OC文件(output control)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.9.1.</span> <span class="toc-text">数字形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.9.2.</span> <span class="toc-text">文字形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CHD%E6%96%87%E4%BB%B6-%E6%B0%B4%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.10.</span> <span class="toc-text">CHD文件-水头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DIS%E7%A6%BB%E6%95%A3%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.11.</span> <span class="toc-text">DIS离散文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">输出文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDS%E6%96%87%E4%BB%B6-%E6%B0%B4%E5%A4%B4%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">HDS文件-水头的二进制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDN%E6%96%87%E4%BB%B6-%E9%99%8D%E6%B7%B1%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">DDN文件-降深的二进制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGT%E6%96%87%E4%BB%B6-%E6%B0%B4%E9%87%8F%E5%B9%B3%E8%A1%A1%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.3.</span> <span class="toc-text">BGT文件-水量平衡文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HVT%E6%96%87%E4%BB%B6-%E6%9C%AC%E6%AC%A1%E6%B2%A1%E7%94%A8%E5%88%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">HVT文件-本次没用到</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="Modlfow的输入输出文件"><a href="#Modlfow的输入输出文件" class="headerlink" title="Modlfow的输入输出文件"></a>Modlfow的输入输出文件</h1><p>本文主要是以modflow2005，且以安徽利辛区的文件为案例。</p>
+<h2 id="输入文件"><a href="#输入文件" class="headerlink" title="输入文件"></a>输入文件</h2><h2 id="NAM-文件-nam"><a href="#NAM-文件-nam" class="headerlink" title="NAM 文件(.nam)"></a>NAM 文件(.nam)</h2><p>这是一个总文件，其中写着该案例里面都包含哪些文件;<br>文件的后缀是.nam; 下面是一个详细的示例</p>
+<pre><code>LIST   53 &#39;.\modflow_in\2018_2019_anhui.LST&#39;
+PCG    19 &#39;.\modflow_in\han.pcg
+BAS6  10 &#39;.\modflow_in\2018_2019_anhui.BAS&#39;
+BCF6  11 &#39;.\modflow_in\2018_2019_anhui.BCF&#39;
+RCH  18 &#39;.\modflow_in\2018_2019_anhui.RCH&#39;
+OC  22 &#39;.\modflow_in\2018_2019_anhui.OC&#39;
+CHD  30 &#39;.\modflow_in\2006_2021_anhui.CHD&#39;
+DIS  34 &#39;.\modflow_in\2018_2019_anhui.DIS&#39;
+DATA(BINARY) 150 &#39;.\modflow_out\2018_2019_anhui.HDS&#39;
+DATA(BINARY) 151 &#39;.\modflow_out\2018_2019_anhui.DDN&#39;
+DATA(BINARY) 154 &#39;.\modflow_out\2018_2019_anhui.BGT&#39;
+DATA(BINARY) 152 &#39;.\modflow_out\2018_2019_anhui.sig&#39;
+DATA(BINARY) 153 &#39;.\modflow_out\2018_2019_anhui.HVT&#39;
+</code></pre>
+<p>示例中的文件路径是采用相对路径，在viusal modflow2011中生成的是绝对路径，两者都可以，其实就是给fortran程序读，想一想只要fortran能读就行。</p>
+<h3 id="list文件"><a href="#list文件" class="headerlink" title="list文件"></a>list文件</h3><p>List文件是日志文件，记录着程序运行的过程和一些重要的输入输出变量。</p>
+<h3 id="BAS文件"><a href="#BAS文件" class="headerlink" title="BAS文件"></a>BAS文件</h3><p>模型的基础文件，由于模型的网格已经画好（Rows=”272” Layers=”2” Columns=”94”），所以会以数组的形式，指定每个cell是否激活，以及每个cell的高程，初始水头等。<br>第一个出现的数组是“Bnd for La 1yer”，是表示每个cell是激活状态，还是处于无效区。本案例中，每行94个值，出现272次；<br>layer1结束后是layer2</p>
+<p>第二个出现的数组是初始水头“Starting Head for Layer 1”，数组的格式和出现顺序与上面是一样的。先layer1，后是layer2</p>
+<h3 id="PCG-求解器文件"><a href="#PCG-求解器文件" class="headerlink" title="PCG-求解器文件"></a>PCG-求解器文件</h3><p>modflow中有各种各样的方程求解，PCG求解时，需要输入相应的参数。<br>当不采用PCG求解器时，本文件也可以用其他文件代替，如Strongly Implicit Procedure Package Input（.sip）。</p>
+<pre><code>        MXITER ITER1 NPCOND
+       hclose rclose        relax    nbpol     iprpcg   mutpcg      damp
+
+        25        10         1
+     .0010     1.e-2       1.0         0        10         1         1.
+</code></pre>
+<h3 id="BCF6"><a href="#BCF6" class="headerlink" title="BCF6"></a>BCF6</h3><p>Input for the Block-Centered Flow (BCF) Package</p>
+<h4 id="第1行"><a href="#第1行" class="headerlink" title="第1行"></a>第1行</h4><p>IBCFCB HDRY IWDFLG WETFCT IWETIT IHDWET<br>154 -1.00e+30         0  1.00e+00         1         0         0<br>IBCFCB 是fortran程序中的unit号，大于0时是将各cell的水平衡文件写入到该文件中，=0时代表不输出该项<br>HDRY  cell没地下水的时候，水头变为多少，一般是-1.e30<br>IWDFLG  决定程序中是否启用wetting capability， =0是不采用<br>WETFCT 一个系数，用于cell从干变湿时计算初始水头<br>IWETIT 循环间隔，对于外部循环而言<br>IHDWET 计算cell从干变湿时计算初始水头-采用的方式；=0是5-32a,else 是5-32b</p>
+<h4 id="第2行"><a href="#第2行" class="headerlink" title="第2行"></a>第2行</h4><p>Ltype(NLAY)<br> 3 3<br>第二行，模型有几层就有几个数，每个数是contains a combined code for each layer that specifies both the layer type (LAYCON) and the method of computing interblock conductance。<br>confined/unconfined—Transmissivity of the layer varies and is calculated from the saturated thickness and hydraulic conductivity. The storage coefficient may alternate between confined and unconfined values. Vertical flow from above is limited if the aquifer desaturates。</p>
+<h3 id="第3行"><a href="#第3行" class="headerlink" title="第3行"></a>第3行</h3><p>感觉是各项异性和各项同性的参数，每层一个数，并不是每一个cell赋值。<br>1.0代表是各向同性。不等于0时是K_COL/k_ROW</p>
+<h3 id="其余部分"><a href="#其余部分" class="headerlink" title="其余部分"></a>其余部分</h3><p>之后是按照数组的形式，对每一个cell的以下变量赋值：</p>
+<p>（1）primary storage coefficient;感觉是压力储存系数，案例中是6.e-5</p>
+<p>（2）Conductivity</p>
+<pre><code>X -L0(本案例是0.5，每行第一个值是8.64的意思没看懂，转换单位？)；
+Vcont-L0 （is the vertical hydraulic conductivity divided by the thickness from a layer to the layer below (also called leakance);
+</code></pre>
+<p> (3) 然后是layer0的第2 storage，一般是给水度</p>
+<pre><code>     0     5.e-2 (10G11.4)                  -1 storage 2 Layer - 0
+</code></pre>
+<p> (4) 然后是Layer1的storage1(primary storage coefficient);X-方向传导度和给水度</p>
+<pre><code>     0        5. (10G11.4)                  -1 X-Conductivity Layer - 1
+     0     1.e-1 (10G11.4)                  -1 storage 2 Layer - 1
+</code></pre>
+<h3 id="RCH补给文件"><a href="#RCH补给文件" class="headerlink" title="RCH补给文件"></a>RCH补给文件</h3><p>该文件是地下水的补给文件，一般都会指定补给的位置和补给的大小，本案例中由于是和HYDRUS联合调用，已经在modflow程序中直接赋值；<br>同样处理的还有RIV输入文件.<br>NRCHOP 是补给的位置：1是最高那一层；3是水位所在那层；2是指定的层；<br>IRCHCB 是是一个选项和文件号：&gt;0时会输出各river cell的水量平衡；=0时不输出；</p>
+<pre><code>     3       154  (NRCHOP  IRCHCB)
+    18
+     0        0. (15G11.4)                  -1 Recharge Period - 1
+    18
+     0        0. (15G11.4)                  -1 Recharge Period - 2
+    18
+</code></pre>
+<p>默认的文件是指让每个应力期的各个cell补给均为0。</p>
+<h3 id="RIV-文件"><a href="#RIV-文件" class="headerlink" title="RIV 文件"></a>RIV 文件</h3><p>modflow中的河流模块输入；<br>第一行MXACTR是229是指RIV的cell个数；IRIVCB是一个选项和文件号：&gt;0时会输出各river cell的水量平衡；=0时不输出；</p>
+<p>第二行开始为每个应力期的循环。229仍是个数；<br>之后每行数字是：</p>
+<pre><code>   layer      Row      Col  Stage     Cond    River_bot_z
+
+   MXACTR-229       IRIVCB-154
+   229
+     1         3        14 2.70186e1 4.82407e2 2.51676e1
+     1         2        14 2.70186e1 2.34609e2 2.51676e1
+     1         6        15 2.70186e1 2.97759e2 2.51676e1
+     1         5        15 2.70186e1  7.0974e2 2.51676e1
+     1         4        15 2.70186e1  7.0974e2 2.51676e1
+     1         8        16 2.70186e1  7.0974e2 2.51676e1
+     1         7        16 2.70186e1  7.0974e2 2.51676e1
+     1         6        16 2.70186e1 4.11981e2 2.51676e1
+     1        11        17 2.70186e1 6.38204e2 2.51676e1
+     1        10        17 2.70186e1  7.0974e2 2.51676e1
+     1         9        17 2.70186e1 5.96629e2 2.51676e1
+     1        14        18 2.70186e1 4.53556e2 2.51676e1
+     1        13        18 2.70186e1  7.0974e2 2.51676e1
+     .......
+</code></pre>
+<h3 id="OC文件-output-control"><a href="#OC文件-output-control" class="headerlink" title="OC文件(output control)"></a>OC文件(output control)</h3><h4 id="数字形式"><a href="#数字形式" class="headerlink" title="数字形式"></a>数字形式</h4><pre><code>    IHEDFM    IDDNFM   IHENUN   IDDNUN
+    然后是每个应力期循环
+    INCODE   IHDDFL    IBUDFL   ICBCFL
+    HDPR      DDPR      HDSV     DDSV
+    然后是下个应力期循环....
+
+     0         0       150       151
+     0         1         1         1
+     0         0         1         1
+     0         1         1         1
+     0         0         1         1
+     0         1         1         1
+     0         0         1         1
+     0         1         1         1
+     0         0         1         1
+     0         1         1         1
+     0         0         1         1
+</code></pre>
+<p>IHEDFM是输出水头的格式：IDDNFM是输出降深的格式；IHENUN和IDDNUN分别是输出水头和降深的文件号；<br>INCODE下一行将要读入文件的处理方式：&lt;0和生一个应力期一样，下一行不用读；=0所有层一个处理方法；&gt;0每层结果单独控制。<br>IHDDFL对于降深输出的控制变量：=0，不输出降深，不是0，看下一行的设置输出；<br>IBUDFL对于水均衡输出的控制变量：=0，不输出，不是0，看下一行的设置输出；<br>ICBCFL对于水均衡输出的控制变量：=0，不输出，不是0，看下一行的设置输出；</p>
+<p>HDPR 水头的输出设置变量：=0时head is not printed for the corresponding layer；不为0时head is printed for the corresponding layer。<br>DDPR，HDSV，DDSV与HDPR类似</p>
+<h4 id="文字形式"><a href="#文字形式" class="headerlink" title="文字形式"></a>文字形式</h4><pre><code># OC package for  MODFLOW-2005, generated by Flopy.
+HEAD PRINT FORMAT   0
+HEAD SAVE UNIT    51
+DRAWDOWN PRINT FORMAT   0
+DRAWDOWN SAVE UNIT    52
+COMPACT BUDGET AUX
+
+period 1 step 1 
+  save head
+  save drawdown
+  save budget
+  print head
+  print budget
+
+period 2 step 1 
+  save head
+  save drawdown
+  save budget
+  print head
+  print budget
+
+period 3 step 1 
+  save head
+  save drawdown
+  save budget
+  print head
+  print budget
+
+period 4 step 1 
+  save head
+  save drawdown
+  save budget
+  print head
+  print budget
+</code></pre>
+<p>文字形式的输出格式通俗易懂，直接是按照应力期和时间步输入对应的文字。</p>
+<h3 id="CHD文件-水头文件"><a href="#CHD文件-水头文件" class="headerlink" title="CHD文件-水头文件"></a>CHD文件-水头文件</h3><p> 对于定水头或者变水头边界，需要将每个应力期的哪些cell水头已知，且开始和结束时的水头给出。</p>
+<pre><code>       204
+       204
+         2       256        16    25.351    25.260
+         2       255        16    25.351    25.260
+         2       255        17    25.351    25.260
+         2       255        18    25.351    25.260
+         2       254        18    25.351    25.260
+         2       254        19    25.351    25.260
+         2       253        19    25.351    25.260
+         2       253        20    25.351    25.260
+         2       252        20    25.351    25.260
+         2       252        21    25.351    25.260
+         2       252        22    25.351    25.260
+         2       251        22    25.351    25.260
+         2       251        23    25.351    25.260
+</code></pre>
+<h3 id="DIS离散文件"><a href="#DIS离散文件" class="headerlink" title="DIS离散文件"></a>DIS离散文件</h3><p>模型的离散信息，前两行是注释<br>“#Discretization Package translator - (c) 2011 Schlumberger Water Services”<br>“#2018_2019_ANHUI.DIS Thu Nov 18 19:17:17 2021”</p>
+<p>第三行： NLAY  NROW  NCOL NPER ITMUNI LENUNI<br>         2       272        94     36500         4         2</p>
+<p>ITMUNI是时间单位，0-未定义；1-秒；2-分；3-小时；4-天；5-年； LENUNI是长度单位：0-未定义；1-英尺；2-米；3-厘米；</p>
+<p>第四行：LAYCBD,每层一个值；1代表是含水层底部有a Quasi-3D confining bed below it，0 代表没有，对于最下层肯定是没有。</p>
+<p>第5行开始是空间离散，首先是一个数组DELR，数组大小等于COL数，每一个值代表第几列的宽度；第一行是 数字格式</p>
+<p>下一个部分是每一行cell的长度DELC，其余类似。</p>
+<p>下一个部分是地表高程，也是第一层（从上往下）含水层的上表面高程，一般都是地表高程；</p>
+<p>下一个部分是模型的底部表面高程，或者bottom elevation of a model layer or a Quasi-3d confining bed。</p>
+<p>最后一个部分是每个应力期内部的时间离散信息；</p>
+<pre><code>        PERLEN    NSTP    TSMULT  SS/tR
+        1.         1        1.     TR
+        1.         1        1.     TR
+        1.         1        1.     TR
+        1.         1        1.     TR
+        1.         1        1.     TR
+        1.         1        1.     TR
+        
+</code></pre>
+<p>PERLEN是应力期长度；NSTP是该应力期分为几个step；TSMULT一个时间步长控制参数；SS/tR是代表该应力是瞬态还是稳态。</p>
+<hr>
+<h2 id="输出文件"><a href="#输出文件" class="headerlink" title="输出文件"></a>输出文件</h2><h3 id="HDS文件-水头的二进制文件"><a href="#HDS文件-水头的二进制文件" class="headerlink" title="HDS文件-水头的二进制文件"></a>HDS文件-水头的二进制文件</h3><p>用flopy的工具包打开</p>
+<h3 id="DDN文件-降深的二进制文件"><a href="#DDN文件-降深的二进制文件" class="headerlink" title="DDN文件-降深的二进制文件"></a>DDN文件-降深的二进制文件</h3><h3 id="BGT文件-水量平衡文件"><a href="#BGT文件-水量平衡文件" class="headerlink" title="BGT文件-水量平衡文件"></a>BGT文件-水量平衡文件</h3><h3 id="HVT文件-本次没用到"><a href="#HVT文件-本次没用到" class="headerlink" title="HVT文件-本次没用到"></a>HVT文件-本次没用到</h3>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/%E4%BB%A3%E7%A0%81/">代码</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/fortran/">fortran</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://hxudong.github.io/2022/08/21/20220821-modflow2005/" data-title="Modflow2005的输入输出文件介绍 | 何妨吟啸且徐行" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2022/08/15/20220815-newstart/"  title="20220815_newstart">
+ <strong>下一篇：</strong><br/> 
+ <span>20220815_newstart
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Modlfow%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">Modlfow的输入输出文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">输入文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAM-%E6%96%87%E4%BB%B6-nam"><span class="toc-number">1.2.</span> <span class="toc-text">NAM 文件(.nam)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#list%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">list文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BAS%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.2.</span> <span class="toc-text">BAS文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PCG-%E6%B1%82%E8%A7%A3%E5%99%A8%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.3.</span> <span class="toc-text">PCG-求解器文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCF6"><span class="toc-number">1.2.4.</span> <span class="toc-text">BCF6</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC1%E8%A1%8C"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">第1行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC2%E8%A1%8C"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">第2行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC3%E8%A1%8C"><span class="toc-number">1.2.5.</span> <span class="toc-text">第3行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BD%99%E9%83%A8%E5%88%86"><span class="toc-number">1.2.6.</span> <span class="toc-text">其余部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RCH%E8%A1%A5%E7%BB%99%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.7.</span> <span class="toc-text">RCH补给文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RIV-%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.8.</span> <span class="toc-text">RIV 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OC%E6%96%87%E4%BB%B6-output-control"><span class="toc-number">1.2.9.</span> <span class="toc-text">OC文件(output control)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.9.1.</span> <span class="toc-text">数字形式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E5%BD%A2%E5%BC%8F"><span class="toc-number">1.2.9.2.</span> <span class="toc-text">文字形式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CHD%E6%96%87%E4%BB%B6-%E6%B0%B4%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.10.</span> <span class="toc-text">CHD文件-水头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DIS%E7%A6%BB%E6%95%A3%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.11.</span> <span class="toc-text">DIS离散文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">输出文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDS%E6%96%87%E4%BB%B6-%E6%B0%B4%E5%A4%B4%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">HDS文件-水头的二进制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDN%E6%96%87%E4%BB%B6-%E9%99%8D%E6%B7%B1%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">DDN文件-降深的二进制文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BGT%E6%96%87%E4%BB%B6-%E6%B0%B4%E9%87%8F%E5%B9%B3%E8%A1%A1%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.3.</span> <span class="toc-text">BGT文件-水量平衡文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HVT%E6%96%87%E4%BB%B6-%E6%9C%AC%E6%AC%A1%E6%B2%A1%E7%94%A8%E5%88%B0"><span class="toc-number">1.3.4.</span> <span class="toc-text">HVT文件-本次没用到</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/paper/" title="paper">paper<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/代码/" title="代码">代码<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/写的不好/" title="写的不好">写的不好<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/博客/" title="博客">博客<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感情/" title="感情">感情<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/感想/" title="感想">感想<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日常/" title="日常">日常<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/日志/" title="日志">日志<sup>9</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/研究生/" title="研究生">研究生<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/说事/" title="说事">说事<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/读书/" title="读书">读书<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/软件操作/" title="软件操作">软件操作<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/感想/" title="感想">感想<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/日志/" title="日志">日志<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/记录/" title="记录">记录<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/vb/" title="vb">vb<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GIS/" title="GIS">GIS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/paper/" title="paper">paper<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Fortran/" title="Fortran">Fortran<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R/" title="R">R<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/greta井雨/" title="greta井雨">greta井雨<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/武大/" title="武大">武大<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/中秋/" title="中秋">中秋<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/matlab/" title="matlab">matlab<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/吐槽/" title="吐槽">吐槽<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/小说/" title="小说">小说<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/高中/" title="高中">高中<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/扯淡/" title="扯淡">扯淡<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/科研/" title="科研">科研<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/fortran/" title="fortran">fortran<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://xiaodouhua.github.io" target="_blank" title="豆子的博客">豆</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://kiwi-yan.github.io/" target="_blank" title="死锁的人生">Kaiwei&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Xudong in Wuhan. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1611529032" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2022 
+		
+		<a href="/about" target="_blank" title="旭东">旭东</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
